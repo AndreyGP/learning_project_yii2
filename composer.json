@@ -26,7 +26,12 @@
         "yiisoft/yii2-faker": "*"
     },
     "config": {
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "preferred-install": "source",
+        "github-protocols": ["http"]
+    },
+    "provide": {
+        "ext-curl": "*"
     },
     "scripts": {
         "post-create-project-cmd": [
