@@ -50,9 +50,8 @@ $config = [
                     'route' => '/',
                     'suffix' => ''
                 ],
-                '<action:(about|contact|login|logout)>' => '/site/<action>',
-                'show' => '/post/show',
-                '<controller>/<action>' => '<controller>/<action>'
+                'category/<alias>' => 'categories/view',
+                'product/<id>' => 'products/view',
             ]
         ],
     ],

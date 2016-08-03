@@ -38,18 +38,18 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i> +7(000)-000-00-00</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> info@youinthestyle.ru</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-odnoklassniki"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                     </div>
@@ -65,38 +65,16 @@ ltIE9AppAsset::register($this);
                     <div class="logo pull-left">
                         <a href="/"><img src="/web/images/home/logo.png" alt="" /></a>
                     </div>
-                    <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
-                            </ul>
-                        </div>
 
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
+                            <li><a href="#"><i class="fa fa-star"></i> Пожелания</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
                         </ul>
                     </div>
                 </div>
@@ -118,30 +96,30 @@ ltIE9AppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="/" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                            <li><a href="/" class="active">Главная</a></li>
+                            <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
+                                    <li><a href="shop.html">Товары</a></li>
+                                    <li><a href="product-details.html">Карточка товара</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="cart.html">Корзина</a></li>
+                                    <li><a href="login.html">Войти</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="#">Отзывы<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="blog.html">Blog List</a></li>
                                     <li><a href="blog-single.html">Blog Single</a></li>
                                 </ul>
                             </li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="404.html">О нас</a></li>
+                            <li><a href="contact-us.html">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
+                        <input type="text" placeholder="Поиск"/>
                     </div>
                 </div>
             </div>
@@ -157,8 +135,8 @@ ltIE9AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
-                        <h2><span>e</span>-shopper</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                        <h2><span>Ты</span> в стиле!</h2>
+                        <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных</p>
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -311,6 +289,13 @@ ltIE9AppAsset::register($this);
 
 
 <?php $this->endBody() ?>
+<script>
+    $(document).ready(function () {
+        $('.cat_menu').dcAccordion({
+            speed: 200
+        });
+    })
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

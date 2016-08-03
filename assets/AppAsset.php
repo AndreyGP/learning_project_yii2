@@ -19,12 +19,13 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         //'css/bootstrap.min.css',
-        'css/font-awesome.min.css',
+        'css/font/css/font-awesome.min.css',
         'css/prettyPhoto.css',
         'css/price-range.css',
         'css/animate.css',
         'css/main.css',
         'css/responsive.css',
+        'css/bootstrap-social.css',
     ];
     public $js = [
         /*'js/jquery.js',
@@ -33,6 +34,8 @@ class AppAsset extends AssetBundle
         'js/price-range.js',
         'js/jquery.prettyPhoto.js',
         'js/main.js',
+        'js/jquery.accordion.js',
+        'js/jquery.cookie.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
