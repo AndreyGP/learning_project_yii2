@@ -3,9 +3,9 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltIE9AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ltIE9AppAsset::register($this);
@@ -14,6 +14,13 @@ ltIE9AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9419103276015408",
+            enable_page_level_ads: true
+        });
+    </script>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
@@ -119,7 +126,9 @@ ltIE9AppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Поиск"/>
+                        <form method="get" action="<?php echo Url::to(['categories/search']);?>">
+                            <input type="text" placeholder="Поиск" name="q"/>
+                        </form>
                     </div>
                 </div>
             </div>

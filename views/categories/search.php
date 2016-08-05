@@ -51,7 +51,7 @@ use yii\widgets\LinkPager;
             <div class="col-sm-9 padding-right">
                 <?php if (!empty($products)): ?>
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center"><?php echo $cat_id['title']; ?></h2>
+                        <h2 class="title text-center">Результаты поиска : <?php echo Html::encode($q); ?></h2>
                         <?php $i = 0; foreach ($products as $model): ?>
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
@@ -110,41 +110,15 @@ use yii\widgets\LinkPager;
                     ]);
                     ?>
                 <?php else:?>
-                    <center><table cellspacing="5" cellpadding="3" width="400">
-                        <tbody>
-                        <tr>
-                            <td id="tableprops" valign="top" align="left"><img height="33" src="http://ucozua.ru/Scripts/13/9ac78731d2dc.bmp" width="25"></td>
-                            <td id="tableprops2" valign="middle" align="left" width="360">
-                                <h1 id="textSection1" style="FONT: 13pt/15pt verdana; COLOR: black"><span id="errorText">Кончился Интернет, всё приехали...</span></h1></td></tr>
-                        <tr>
-                            <td id="tablepropsWidth1" width="400" colspan="2"><font style="FONT: 8pt/11pt verdana; COLOR: black">Поздравляем! Админы нажрались и выключили электричество!. Больше не будет ссылок, прикольных картинок,
-                                    свежих анекдотов и порнографии.</font></td></tr>
-                        <tr>
-                            <td id="tablepropsWidth" width="400" colspan="2"><font id="liD1" style="FONT: 8pt/11pt verdana; COLOR: black">
-                                    <hr color="#c0c0c0" noshade="">
-
-                                    <p id="liD2">Попробуйте следующее:
-                                    </p><ul>
-                                        <li id="instructionsText1">Включите телевизор и посмотрите мультфильмы,
-                                            какой-нибудь боевик, детектив, телесериал или просто новости. <br>
-                                        </li><li id="instructionsText2">Бахните пивка, а лучше водки и закусите огурцом, чтобы залить печаль :)<br>
-                                        </li><li id="instructionsText3">Выключите свой компьютер нафиг и ложитесь
-                                            спать.
-                                        </li><li id="list4">Если это разрешено действующим Законодательством вашей
-                                            страны, последовательно отсоедините от системного блока компьютера шнуры
-                                            питания, модема, затем - шнуры видеокарты и принтера, после чего
-                                            выбросьте системный блок и монитор компьютера в окно. </li></ul>
-
-
-                                    <br><br></p>
-                                    <hr color="#c0c0c0" noshade="">
-
-
-
-                                    <br><br></p>
-                                    <h2 id="IEText" style="FONT: 8pt/11pt verdana; COLOR: black">Ошибка
-                                        Microsoft Internet Explorer номер 404 - Интернет закончился к чертям
-                                        собачьим. <br></h2></font></td></tr></tbody></table></center>
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">Результаты поиска : <?php echo Html::encode($q); ?></h2>
+                        <center>
+                            <h2>Поиск не дал результатов...</h2>
+                            <?php echo Html::img('@web/images/netu.jpg', ['alt' => "Ку...", 'width' => '350']);?>
+                        </center>
+                    </div>
+                </div>
                 <?php endif;?>
 
             </div>
