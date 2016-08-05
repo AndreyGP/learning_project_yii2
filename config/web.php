@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
+    'defaultRoute' => 'categories/index',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -50,6 +51,7 @@ $config = [
                     'route' => '/',
                     'suffix' => ''
                 ],
+                'category/<alias>/<page:\d+>' => 'categories/view',
                 'category/<alias>' => 'categories/view',
                 'product/<id>' => 'products/view',
             ]

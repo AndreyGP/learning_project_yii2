@@ -903,6 +903,10 @@ h2.title {
  position:relative;
 }
 
+a.prod_cart{
+  cursor: pointer; color: #363636;
+}
+
 .product-overlay {
   background:#FE980F;
   top: 0;

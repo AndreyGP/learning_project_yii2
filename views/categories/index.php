@@ -1,8 +1,11 @@
 <?php
 use app\components\MenuCategoryWidget;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\LinkPager;
 /* @var $this yii\web\View */
+//debug($hits);
 
-$this->title = 'Ты в стиле! | Стильная одежда';
 ?>
 
 <section id="slider"><!--slider-->
@@ -98,7 +101,8 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well text-center">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
+                                   data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
                             <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
                         </div>
                     </div><!--/price-range-->
@@ -111,163 +115,67 @@ $this->title = 'Ты в стиле! | Стильная одежда';
             </div>
 
             <div class="col-sm-9 padding-right">
+<?php if (!empty($hits)): ?>
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Популярные товары</h2>
+    <?php $i = 0; foreach ($hits as $model): ?>
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="/web/images/products/product1.jpg" alt="" />
-                                    <h2>1000</h2>
-                                    <p>Кардиган лёгкий тёмно-синий</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                    <a href="<?php echo Url::to('/product/' . $model['id']); ?>" class="prod_cart">
+                                    <?php echo Html::img($model['img_zoom'], ['alt' => $model['title']]);?>
+                                    </a>
+                                    <h2><?php echo $model['price'];?></h2>
+                                    <p>
+                                        <a href="<?php echo Url::to('/product/' . $model['id']); ?>" class="prod_cart">
+                                            <?php echo $model['title'];?>
+                                        </a>
+                                    </p>
+                                    <a href="#" class="btn btn-default add-to-cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        В корзину
+                                    </a>
                                 </div>
-                                <div class="product-overlay">
+                                <!--div class="product-overlay">
                                     <div class="overlay-content">
-                                        <h2>1000</h2>
-                                        <p>Кардиган лёгкий тёмно-синий</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                        <h2><?php //echo $model['price'];?></h2>
+                                        <p><?php //echo $model['title'];?></p>
+                                        <a href="#" class="btn btn-default add-to-cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            В корзину
+                                        </a>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/product2.jpg" alt="" />
-                                    <h2>800</h2>
-                                    <p>Мужской Easy Polo Style</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>800</h2>
-                                        <p>Мужской Easy Polo Style</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/product3.jpg" alt="" />
-                                    <h2>2000</h2>
-                                    <p>Коктейль-платье Black Edition</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>2000</h2>
-                                        <p>Коктейль-платье Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/product4.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                </div>
-                                <img src="images/home/new.png" class="new" alt="" />
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/product5.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                </div>
-                                <img src="images/home/sale.png" class="new" alt="" />
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="images/home/product6.jpg" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                </div>
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                                </div-->
+                            <?php if ($model['is_new'] == 1):?>
+                                <img class="new" alt="" src="/web/images/home/new.png">
+                            <?php endif;?>
+                            <?php if ($model['discount'] == 1):?>
+                                <img class="new" alt="" src="/web/images/home/sale.png">
+                            <?php endif;?>
 
+
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
+                                    <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        <?php $i++;?>
+        <?php if ($i % 3 == 0):;?>
+            <div class="clearfix"></div>
+        <?php endif;?>
+    <?php endforeach;?>
                 </div><!--features_items-->
-
+    <div class="clearfix"></div>
+    <?php echo LinkPager::widget([
+        'pagination' => $pages,
+    ]);
+    ?>
+<?php endif;?>
                 <div class="category-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
@@ -287,7 +195,10 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                                             <img src="images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <a href="#" class="btn btn-default add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                В корзину
+                                            </a>
                                         </div>
 
                                     </div>
@@ -300,7 +211,10 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                                             <img src="images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <a href="#" class="btn btn-default add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                В корзину
+                                            </a>
                                         </div>
 
                                     </div>
@@ -313,7 +227,10 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                                             <img src="images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <a href="#" class="btn btn-default add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                В корзину
+                                            </a>
                                         </div>
 
                                     </div>
@@ -326,7 +243,10 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                                             <img src="images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                            <a href="#" class="btn btn-default add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                В корзину
+                                            </a>
                                         </div>
 
                                     </div>
