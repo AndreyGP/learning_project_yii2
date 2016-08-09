@@ -1642,7 +1642,7 @@ a.prod_cart{
 
 .cart_product {
   display: block;
-  margin: 15px -70px 10px 25px;
+  margin: 15px 0 10px 10px;
 }
 
 .cart_quantity_button a {

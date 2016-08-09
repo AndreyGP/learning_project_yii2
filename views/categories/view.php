@@ -66,7 +66,7 @@ use yii\widgets\LinkPager;
                                                     <?php echo $model['title'];?>
                                                 </a>
                                             </p>
-                                            <a href="#" class="btn btn-default add-to-cart">
+                                            <a data-id="<?php echo $model['id'];?>" href="<?php echo Url::to(['cart/add', 'id' => $model['id']]);?>" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
                                             </a>

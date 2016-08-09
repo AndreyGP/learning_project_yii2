@@ -51,6 +51,7 @@ class MenuCategoryWidget extends Widget
 
     protected function menuHtml($categories)
     {
+        $htmlStr = '';
         foreach ($categories as $item){
             $htmlStr .= $this->menuTemplade($item);
         }

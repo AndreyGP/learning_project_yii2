@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
+use yii\bootstrap\Modal;
 use yii\bootstrap\NavBar;
 use app\assets\AppAsset;
 use app\assets\ltIE9AppAsset;
@@ -80,7 +80,7 @@ ltIE9AppAsset::register($this);
                             <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Избранное</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Сравнение</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="cart.html" id="cartOn"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
                         </ul>
                     </div>
@@ -296,15 +296,20 @@ ltIE9AppAsset::register($this);
 
 </footer><!--/Footer-->
 
-
 <?php $this->endBody() ?>
-<script>
-    $(document).ready(function () {
-        $('.cat_menu').dcAccordion({
-            speed: 200
-        });
-    })
-</script>
+
 </body>
+<?php
+Modal::begin([
+    'header' => '<h2>Корзина</h2>',
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+                 <button type="button" class="btn btn-success" id="cartPay">Оформить заказ</button>
+                 <button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>',
+    'size' => 'modal-lg',
+    'id' => 'cart'
+]);
+
+Modal::end();
+?>
 </html>
 <?php $this->endPage() ?>

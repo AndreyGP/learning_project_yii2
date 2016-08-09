@@ -27,4 +27,137 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+
+	$('.cat_menu').dcAccordion({
+		speed: 200
+	});
+
+	function showCart(cart)
+	{
+		$('#cart .modal-body').html(cart);
+		$('#cart').modal();
+	}
+	
+	$('#clearCart').on('click', function (){
+		$.ajax({
+			url: '/cart/clear',
+			type: 'GET',
+			success: function(res){
+				if(!res) alert('Ошибка!');
+				//console.log(res)
+				//$('#cartPay').hidden();
+				showCart(res);
+			},
+			error: function(){
+				alert('Error!');
+			}
+		});
+	});
+
+
+	$('.add-to-cart').on('click', function (e) {
+		e.preventDefault();
+
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/cart/add',
+			data: {id: id},
+			type: 'GET',
+			success: function(res){
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('.qty_prod').on('click', function (e) {
+		e.preventDefault();
+
+		var id = $(this).data('id');
+		var qty = $('#qty_prod').val();
+		$.ajax({
+			url: '/cart/add',
+			data: {id: id, qty: qty},
+			type: 'GET',
+			success: function(res){
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('#cart .modal-body').on('click', '.del-item',function (e) {
+		e.preventDefault();
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/cart/delete',
+			data: {id: id},
+			type: 'GET',
+			success: function (res) {
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('#cart .modal-body').on('click', '.cart_quantity_up',function (e) {
+		e.preventDefault();
+		var id = $(this).data('id');
+		var up = 'up';
+		$.ajax({
+			url: '/cart/recalc',
+			data: {id: id, action: up},
+			type: 'GET',
+			success: function (res) {
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('#cart .modal-body').on('click', '.cart_quantity_down',function (e) {
+		e.preventDefault();
+		var id = $(this).data('id');
+		var down = 'down';
+		$.ajax({
+			url: '/cart/recalc',
+			data: {id: id, action: down},
+			type: 'GET',
+			success: function (res) {
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+
+	$('#cartOn').on('click', function (e) {
+		e.preventDefault();
+		$.ajax({
+			url: '/cart/show',
+			type: 'GET',
+			success: function(res){
+				if (!res) alert('Ошибка');
+				showCart(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
 });
