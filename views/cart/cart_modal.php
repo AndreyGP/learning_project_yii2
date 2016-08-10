@@ -54,11 +54,11 @@
                     </tr>
                     <tr>
                         <td>Скидка: </td>
-                        <td><?php ($session['cart.qty'] <= 10) ? $prc = $session['cart.qty'] * 2 : $prc = 20; echo $prc . '%';?></td>
+                        <td><?php echo $session['cart.prc'] . '%';?></td>
                     </tr>
                     <tr>
                         <td>К оплате: </td>
-                        <td><span><?php echo ($session['cart.sum'] / 100) * (100 - $prc);?></span></td>
+                        <td><span><?php echo ($session['cart.sum'] / 100) * (100 - $session['cart.prc']);?></span></td>
                     </tr>
                 </table>
             </td>
@@ -69,6 +69,7 @@
     <center>
         <h2>Корзина пуста...</h2>
         <img src="/web/images/netu.jpg" alt="Ку..." width="350">
+
     </center>
 <?php endif;?>
 </div>

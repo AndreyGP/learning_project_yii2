@@ -29,7 +29,7 @@ class CategoriesController extends AppController
             ->orderBy('id DESC');
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 6,
+            'pageSize' => 9,
             'forcePageParam' => false,
             'pageSizeParam' => false]);
         $hits = $query
@@ -37,7 +37,15 @@ class CategoriesController extends AppController
             ->limit($pages->limit)
             ->all();
 
-        return $this->render('index', compact('hits', 'pages'));
+        $recomend = Product::find()
+            ->asArray()
+            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+            ->where(['recomended' => 1])
+            ->orderBy('id DESC')
+            ->limit(12)
+            ->all();
+
+        return $this->render('index', compact('hits', 'pages', 'recomend'));
     }
 
     public function actionView($alias)
@@ -60,7 +68,7 @@ class CategoriesController extends AppController
             ->orderBy('id DESC');
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 6,
+            'pageSize' => 12,
             'forcePageParam' => false,
             'pageSizeParam' => false]);
         $products = $query
@@ -84,7 +92,7 @@ class CategoriesController extends AppController
             ->orderBy('id DESC');
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 6,
+            'pageSize' => 12,
             'forcePageParam' => false,
             'pageSizeParam' => false]);
         $products = $query

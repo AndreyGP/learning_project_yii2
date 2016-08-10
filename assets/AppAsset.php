@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'css/main.css',
         'css/responsive.css',
         'css/bootstrap-social.css',
+        'css/cloudzoom.css',
     ];
     public $js = [
         /*'js/jquery.js',

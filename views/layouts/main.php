@@ -14,6 +14,7 @@ ltIE9AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
@@ -80,7 +81,11 @@ ltIE9AppAsset::register($this);
                             <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Избранное</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Сравнение</a></li>
-                            <li><a href="cart.html" id="cartOn"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li>
+                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart">
+                                    </i>Корзина<span class="badge cart_badge"><?php if (!isset($_COOKIE['QTY']))echo $_COOKIE['QTY']; ?></span>
+                                </a>
+                            </li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
                         </ul>
                     </div>
@@ -88,7 +93,6 @@ ltIE9AppAsset::register($this);
             </div>
         </div>
     </div><!--/header-middle-->
-
     <div class="header-bottom"><!--header-bottom-->
         <div class="container">
             <div class="row">
@@ -301,15 +305,33 @@ ltIE9AppAsset::register($this);
 </body>
 <?php
 Modal::begin([
-    'header' => '<h2>Корзина</h2>',
-    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-                 <button type="button" class="btn btn-success" id="cartPay">Оформить заказ</button>
-                 <button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>',
+    'header' => '<h2>Ваша Корзина</h2>',
+    'footer' => '<button type="button" class="btn btn-danger" id="clearCart">Очистить корзину</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+                 <a href="/cart/order" class="btn btn-success" id="cartPay"><b>Оформить заказ</b></a>',
     'size' => 'modal-lg',
     'id' => 'cart'
 ]);
-
 Modal::end();
+
+
+Modal::begin([
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>',
+    'size' => 'modal-lg',
+    'id' => 'cartNo'
+]);
 ?>
+<center>
+    <h2>Корзина пуста...</h2>
+    <img src="/web/images/netu.jpg" alt="Ку..." width="350">
+</center>
+<?php
+Modal::end();
+
+?>
+<script type="text/javascript" src="/web/js/cloudzoom.js"></script>
+<script type="text/javascript">
+    CloudZoom.quickStart();
+</script>
 </html>
 <?php $this->endPage() ?>

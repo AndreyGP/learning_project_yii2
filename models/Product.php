@@ -20,4 +20,9 @@ class Product extends AppActiveModel
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
+    public function getBrands()
+    {
+        return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
+    }
 }

@@ -87,28 +87,43 @@ use yii\widgets\LinkPager;
                         <h2>Бренды</h2>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                                <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                                <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                                <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                                <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                                <li><a href="#"> <span class="pull-right">(50)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(56)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(27)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(32)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(5)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(9)</span>Бренд</a></li>
+                                <li><a href="#"> <span class="pull-right">(4)</span>Бренд</a></li>
                             </ul>
                         </div>
                     </div><!--/brands_products-->
 
-                    <div class="price-range"><!--price-range-->
-                        <h2>Price Range</h2>
-                        <div class="well text-center">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
-                                   data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                    <div class="price-range" ><!--price-range-->
+                        <div class="well text-center" style="height: 280px; margin-bottom: 5px; border: none;">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Ты в стиле сайдбары 2 -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9419103276015408"
+                                 data-ad-slot="2194929578"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div><!--/price-range-->
 
-                    <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                    <div class="shipping text-center" style="height: 350px; background-color: white;"><!--shipping-->
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Ты в стиле сайдбары -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9419103276015408"
+                             data-ad-slot="6764729977"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div><!--/shipping-->
 
                 </div>
@@ -176,103 +191,50 @@ use yii\widgets\LinkPager;
     ]);
     ?>
 <?php endif;?>
-                <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">Рекомендуемые товары</h2>
+<?php if (!empty($recomend)): ?>
+                    <div class="recommended_items"><!--recommended_items-->
+                        <h2 class="title text-center">Рекомендуемые товары</h2>
 
-                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+    <?php $count = count($recomend); $i = 0; foreach ($recomend as $rcmd):?>
+        <?php if ($i == 0):?>
+                                <div class="item active">
+        <?php endif; ?>
+        <?php if ($i % 3 == 0 && $i != 0):?>
+                                <div class="item">
+        <?php endif; ?>
+                                    <div class="col-sm-4">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <?php echo Html::img($rcmd['img_zoom'], ['alt' => 'recommend']);?>
+                                                        <h2><?php echo $rcmd['price'];?></h2>
+                                                        <p><?php echo $rcmd['title'];?></p>
+                                                        <a href="<?php Url::to(['/cart/add', 'id' => $rcmd['id']]);?>" data-id="<?php echo $rcmd['id'];?>" type="button" class="btn btn-default add-to-cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            В корзину
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                        </div>
                                     </div>
+                                    <?php $i++ ;?>
+            <?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
+            <?php endif; ?>
+    <?php  endforeach;?>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="item">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div><!--/recommended_items-->
-
+                    </div><!--/recommended_items-->
+<?php endif; ?>
                 <div class="category-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">

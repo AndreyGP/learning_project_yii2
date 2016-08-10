@@ -31,6 +31,9 @@ class Cart extends AppActiveModel
         $_SESSION['cart.sum'] = isset($_SESSION['cart.sum'])
             ? $_SESSION['cart.sum'] + $_SESSION['cart'][$product['id']]['PRICE'] * $qty
             : $_SESSION['cart'][$product['id']]['PRICE'] * $qty;
+        $_SESSION['cart.prc'] = ($_SESSION['cart.qty'] <= 10)
+            ? $_SESSION['cart.qty'] * 2
+            : 20;
     }
 
     public function deleteFromCart($id)
@@ -40,8 +43,10 @@ class Cart extends AppActiveModel
         }
         $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - $_SESSION['cart'][$id]['QTY'];
         $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - ($_SESSION['cart'][$id]['PRICE'] * $_SESSION['cart'][$id]['QTY']);
-
         unset($_SESSION['cart'][$id]);
+        $_SESSION['cart.prc'] = ($_SESSION['cart.qty'] <= 10)
+            ? $_SESSION['cart.qty'] * 2
+            : 20;
     }
 
     public function recalculationCart($id, $action)
@@ -53,11 +58,17 @@ class Cart extends AppActiveModel
             $_SESSION['cart'][$id]['QTY'] = $_SESSION['cart'][$id]['QTY'] - 1;
             $_SESSION['cart.qty'] = $_SESSION['cart.qty'] - 1;
             $_SESSION['cart.sum'] = $_SESSION['cart.sum'] - $_SESSION['cart'][$id]['PRICE'];
+            $_SESSION['cart.prc'] = ($_SESSION['cart.qty'] <= 10)
+                ? $_SESSION['cart.qty'] * 2
+                : 20;
         }
         if ($action == 'up'){
             $_SESSION['cart'][$id]['QTY'] = $_SESSION['cart'][$id]['QTY'] + 1;
             $_SESSION['cart.qty'] = $_SESSION['cart.qty'] + 1;
             $_SESSION['cart.sum'] = $_SESSION['cart.sum'] + $_SESSION['cart'][$id]['PRICE'];
+            $_SESSION['cart.prc'] = ($_SESSION['cart.qty'] <= 10)
+                ? $_SESSION['cart.qty'] * 2
+                : 20;
         }
     }
 }

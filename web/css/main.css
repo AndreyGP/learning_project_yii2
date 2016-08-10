@@ -2310,6 +2310,10 @@ a.prod_cart{
   width: 100%;
 }
 
+img.img_400{
+  width: 100%;
+}
+
 .response-area .media .pull-left {
   margin-right: 25px
 }

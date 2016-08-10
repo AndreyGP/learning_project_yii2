@@ -22,16 +22,20 @@ class ProductsController extends AppController
             throw new HttpException('404', 'Страница не существует');
         }
 
-        $product = Product::findOne($id);
+        $product = Product::find()
+            ->asArray()
+            ->with('categories')
+            ->where(['id' => $id])
+            ->one();
         if (empty($product)){
             throw new HttpException('404', 'Страница не существует');
         }
 
-        $this->setProdMeta('Ты в стиле! | ' . $product->title,
-            $product->data_title,
-            $product->data_description,
-            $product->keyword,
-            $product->img_zoom);
+        $this->setProdMeta('Ты в стиле! | ' . $product['title'],
+            $product['data_title'],
+            $product['data_description'],
+            $product['keyword'],
+            $product['img_zoom']);
 
         $hits = Product::find()
             ->asArray()
@@ -40,8 +44,15 @@ class ProductsController extends AppController
             ->orderBy('id DESC')
             ->limit(12)
             ->all();
+        $recomend = Product::find()
+            ->asArray()
+            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+            ->where(['recomended' => 1])
+            ->orderBy('id DESC')
+            ->limit(12)
+            ->all();
 
-        return $this->render('view', compact('product', 'hits'));
+        return $this->render('view', compact('product', 'hits', 'recomend'));
 
 
     }

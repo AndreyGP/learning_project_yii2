@@ -32,17 +32,32 @@ use yii\widgets\LinkPager;
                         </div>
                     </div><!--/brands_products-->
 
-                    <div class="price-range"><!--price-range-->
-                        <h2>Ценовой диапазон</h2>
-                        <div class="well text-center">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="5000"
-                                   data-slider-step="100" data-slider-value="[1000,2500]" id="sl2" ><br />
-                            <b class="pull-left">0</b> <b class="pull-right">5000</b>
+                    <div class="price-range" ><!--price-range-->
+                        <div class="well text-center" style="height: 280px; margin-bottom: 5px; border: none;">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Ты в стиле сайдбары 2 -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9419103276015408"
+                                 data-ad-slot="2194929578"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                         </div>
                     </div><!--/price-range-->
 
-                    <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                    <div class="shipping text-center" style="height: 350px; background-color: white;"><!--shipping-->
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Ты в стиле сайдбары -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9419103276015408"
+                             data-ad-slot="6764729977"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div><!--/shipping-->
 
                 </div>
@@ -66,7 +81,7 @@ use yii\widgets\LinkPager;
                                                     <?php echo $model['title'];?>
                                                 </a>
                                             </p>
-                                            <a href="#" class="btn btn-default add-to-cart">
+                                            <a data-id="<?php echo $model['id'];?>" href="<?php echo Url::to(['cart/add', 'id' => $model['id']]);?>" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
                                             </a>
