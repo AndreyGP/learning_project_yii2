@@ -31,6 +31,12 @@ class Order extends AppActiveModel
         return 'orders';
     }
 
+
+    public function getOrderItems()
+    {
+        return $this->hasMany(OrderItem::className(), ['order_id' => 'id']);
+    }
+
     public function behaviors()
     {
         return [
@@ -61,11 +67,6 @@ class Order extends AppActiveModel
             [['email', 'phone'], 'string', 'max' => 50],
             [['address'], 'string', 'max' => 255],
         ];
-    }
-
-    public function getOrderItems()
-    {
-        return $this->hasMany(OrderItem::className(), ['order_id' => 'id']);
     }
 
     /**

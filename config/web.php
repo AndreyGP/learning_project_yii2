@@ -53,6 +53,7 @@ $config = [
                 ],
                 'category/<alias>/<page:\d+>' => 'categories/view',
                 'category/<alias>' => 'categories/view',
+                'product/rait' => 'products/rait',
                 'product/<id>' => 'products/view',
                 'search' => 'categories/search',
             ]

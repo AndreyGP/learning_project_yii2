@@ -1260,7 +1260,7 @@ a.prod_cart{
 .product-information span {
   display: inline-block;
   margin-bottom: 8px;
-  margin-top: 18px;
+  margin-top: 6px;
 }
 
 .product-information span span {
@@ -2537,6 +2537,10 @@ img.img_400{
 
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
+}
+
+.pointer{
+  cursor: pointer;
 }
 
 

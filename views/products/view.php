@@ -67,30 +67,49 @@ use yii\widgets\LinkPager;
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product" >
-                            <img class = "cloudzoom img_400" src = "<?php echo $product['img_zoom'];?>"
-                                 data-cloudzoom = "zoomImage: '<?php echo $product['img_zoom'];?>'" />
+                            <img class = "cloudzoom img_400"
+                                 src = "http://tatyana-fashion.ru/img/products/4bcdb9752d0fe56766ed2898356966b5.jpg"
+                                 data-cloudzoom = "
+                                     zoomImage: 'http://tatyana-fashion.ru/img/products/4bcdb9752d0fe56766ed2898356966b5.jpg',
+                                     zoomWidth: 400, zoomHeight: 400
+                                " title="<?php echo $product['title'];?>"
+                            />
 
                         </div>
+<?php if (true):?>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a href='/web/images/products/product1.jpg' class='cloud-zoom-gallery'
-                                       rel="useZoom: 'zoom1', smallImage: '/web/images/products/product3.jpg', title:'описание 1' ">
-                                        <img src="/web/images/product-details/similar1.jpg" alt="описание 1"/></a>
-
-                                    <a href='/web/images/products/product3.jpg' class='cloud-zoom-gallery'
-                                       rel="useZoom: 'zoom1', smallImage: ' /web/images/products/product3.jpg', title:'описание 2' ">
-                                        <img src="/web/images/product-details/similar2.jpg" alt="описание 2"/></a>
-
-                                    <a href='/web/images/products/product5.jpg' class='cloud-zoom-gallery'
-                                       rel="useZoom: 'zoom1', smallImage: '/web/images/products/product3.jpg', title:'описание 3' ">
-                                        <img src="/web/images/product-details/similar3.jpg" alt="описание 3"/></a>
+                                    <img class = 'cloudzoom-gallery pointer'
+                                         src = "/web/images/product-details/similar1.jpg"
+                                         data-cloudzoom = "
+                                             useZoom: '.cloudzoom',
+                                             image: '/web/images/products/product1.jpg',
+                                             zoomImage: '/web/images/products/product1.jpg' "
+                                    />
+                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar2.jpg"
+                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product2.jpg', zoomImage: '/web/images/products/product2.jpg' " >
+                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar3.jpg"
+                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product3.jpg', zoomImage: '/web/images/products/product3.jpg' " >
+                                </div>
+                                <div class="item">
+                                    <img class = 'cloudzoom-gallery pointer'
+                                         src = "/web/images/product-details/similar1.jpg"
+                                         data-cloudzoom = "
+                                             useZoom: '.cloudzoom',
+                                             image: '/web/images/products/product1.jpg',
+                                             zoomImage: '/web/images/products/product1.jpg' "
+                                    />
+                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar2.jpg"
+                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product2.jpg', zoomImage: '/web/images/products/product2.jpg' " >
+                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar3.jpg"
+                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product3.jpg', zoomImage: '/web/images/products/product3.jpg' " >
                                 </div>
 
                             </div>
-
+    <?php if (true): ?>
                             <!-- Controls -->
                             <a class="left item-control" href="#similar-product" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
@@ -98,7 +117,9 @@ use yii\widgets\LinkPager;
                             <a class="right item-control" href="#similar-product" data-slide="next">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+    <?php endif;?>
                         </div>
+<?php endif;?>
 
                     </div>
                     <div class="col-sm-7">
@@ -119,7 +140,8 @@ use yii\widgets\LinkPager;
 <?php endif;?>
                             <h2><?php echo $product['title'];?></h2>
                             <p>Артикуль: <?php echo $product['vendor_code']; ?></p>
-                            <img src="/web/images/product-details/rating.png" alt="" />
+                            <div id="jRateRead"  data-average="<?php echo $this->context->raiting; ?>"></div>
+
                             <span>
                                 <span>&#8381; <?php echo $product['price'];?></span>
                                 <label>Кол-во:</label>
@@ -130,22 +152,41 @@ use yii\widgets\LinkPager;
                                 </a>
                             </span>
                             <p><b>Наличие:</b><?php echo ($product['in_stock'] == 1)
-                                                            ? ' <span style="color: green;">Есть в наличии</span>'
-                                                            : ' <span style="color: red;">Нет в наличии</span>';?>
+                                                            ? ' &nbsp;<span style="color: green;" class="glyphicon glyphicon-ok"></span>
+                                                                <span style="color: green;">Есть в наличии </span>'
+                                                            : '&nbsp; <span style="color: red;" class="glyphicon glyphicon-ban-circle"></span>
+                                                                <span style="color: red;">Нет в наличии</span>';?>
                             </p>
                             <?php if ($product['is_new'] == 1):?>
-                            <p><b>Состояние:</b> <span style="color: red">Новинка!</span></p>
+                            <p><b>Состояние:</b>
+                                &nbsp;<span style="color: red" class="glyphicon glyphicon-exclamation-sign"></span>
+                               <span style="color: red">Новинка!</span>
+                            </p>
                             <?php endif;?>
                             <p><b>Категория:</b>
                                 <a href="/category/<?php echo $product['categories']['alias'];?>">
+                                    &nbsp;<span class="glyphicon glyphicon-hand-right"></span>
                                     <span><?php echo $product['categories']['title'];?></span>
                                 </a>
                             </p>
                             <div>
-                                <p><b><span>Описание:</span></b></p>
+                                <p><b><span>Описание:</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span></b></p>
                                 <?php echo $product['body'];?>
                             </div>
-                            <span><h4>Поделиться:</h4></span>
+<?php if (!$raiting):?>
+                            <p id="noRes"><b><span style="color: red">Оцените данную модель:</span> <span class="glyphicon glyphicon-thumbs-up btn-lg"></span></b></p>
+                            <div id="res"></div>
+                            <div id="jRate" data-id="<?php echo $product['id'];?>" data-ip="<?php echo $ip;?>">
+                                <div id="demo-onchange-value"></div>
+                            </div>
+<?php endif; ?>
+
+                                <a id="scrollDown" class="btn btn-warning" style="color: white" href="#bottom">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    Оставить комментарий / Задать вопрос
+                                </a>
+
+                            <h4>Поделиться:</h4>
                             <div    class="ya-share2"
                                     data-services="odnoklassniki,vkontakte,moimir,facebook"
                                     data-counter="" data-copy="first"
@@ -308,7 +349,22 @@ use yii\widgets\LinkPager;
                     </div>
                 </div><!--/recommended_items-->
 <?php endif; ?>
+                <p><a name="bottom"></a></p>
             </div>
+            <div id="hypercomments_widget"></div>
+            <script type="text/javascript">
+                _hcwp = window._hcwp || [];
+                _hcwp.push({widget:"Stream", widget_id: 78300});
+                (function() {
+                    if("HC_LOAD_INIT" in window)return;
+                    HC_LOAD_INIT = true;
+                    var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+                    var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+                    hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/78300/"+lang+"/widget.js";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hcc, s.nextSibling);
+                })();
+            </script>
         </div>
     </div>
 </section>

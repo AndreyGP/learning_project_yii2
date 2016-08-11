@@ -13,6 +13,9 @@ use yii\web\Controller;
 
 class AppController extends Controller
 {
+    public $raiting;
+    public $cartQty;
+
     protected function setCatMeta($cat_title = null, $cat_description = null, $cat_keywords = null)
     {
         $this->view->title = $cat_title;

@@ -8,7 +8,51 @@
 		
 /*scroll to top*/
 
+
 $(document).ready(function(){
+	$('#res').hide();
+
+	$("#jRate").jRate({
+		rating: 4.0	, //По умолчанию рейтинг
+		shape: 'STAR',//STAR, FOOD, TWITTER, BULB, RECTANGLE, CIRCLE, RHOMBUS, TRIANGLE.
+		shapeGap: '10px',//Правый отступ
+		minSelected: 3,//Минимально допустимая оценка
+		precision: 0.5,//Шаг в оценке
+		width: 40,//Ширина
+		height: 40,//высота
+		startColor: 'yellow',//Начинается с цвета
+		endColor: 'green',//Заканчивается цветом
+		min: 1,//Минимальная на первой звезде
+		max: 5,//Максимальная на последней
+		onChange: function(rating) {
+			$('#demo-onchange-value').after().text("Ваша оценка: "+rating);
+		},
+		onSet: function(rating) {
+			var id = $('#jRate').data('id');
+			var ip = $('#jRate').data('ip');
+			$.ajax({
+				url: '/product/rait',
+				type: 'GET',
+				data: {id: id, rait: rating, ip: ip},
+				success: function (res) {
+					if (!res) alert('Error!');
+					$('#noRes').hide();
+					$('#jRate').hide();
+					$('#res')
+						.show()
+						.html("<span style=\"color: red\">Благодарим за Вашу оценку:</span> <b style=\"color: green\">"+rating+"</b>");
+
+				},
+				error: function () {
+					alert('Error!!!');
+				}
+			});
+
+		}
+	});
+
+	CloudZoom.quickStart();
+
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -41,12 +85,17 @@ $(document).ready(function(){
 	function showCartClear(cart)
 	{
 		$('#cart .modal-body').html(cart);
-		$('span.cart_badge').html('0');
+		$('span.cart_badge').html('');
 		$('#cart').modal();
 	}
 
 	function showNoCart(){
 		$('#cartNo').modal();
+	}
+	function showYesCart(cart)
+	{
+		$('#cart .modal-body').html(cart);
+		$('#cart').modal();
 	}
 	
 	$('#clearCart').on('click', function (){
@@ -163,7 +212,7 @@ $(document).ready(function(){
 				if (!res){
 					showNoCart();
 				}else{
-					showCart(res);
+					showYesCart(res);
 				}
 			},
 			error: function () {

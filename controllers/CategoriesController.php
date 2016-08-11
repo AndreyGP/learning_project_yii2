@@ -45,6 +45,10 @@ class CategoriesController extends AppController
             ->limit(12)
             ->all();
 
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = $_SESSION['cart.qty'];
+
         return $this->render('index', compact('hits', 'pages', 'recomend'));
     }
 
@@ -76,7 +80,10 @@ class CategoriesController extends AppController
             ->limit($pages->limit)
             ->all();
 
-        //debug($products);
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = $_SESSION['cart.qty'];
+
         return $this->render('view', compact('products', 'cat_id', 'pages'));
     }
 
@@ -108,7 +115,10 @@ class CategoriesController extends AppController
                 ->all();
         }*/
 
-        //debug($cat_id);
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = $_SESSION['cart.qty'];
+
         return $this->render('search', compact('products', 'pages', 'q'));
     }
 }

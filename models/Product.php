@@ -25,4 +25,9 @@ class Product extends AppActiveModel
     {
         return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
     }
+
+    public function getRaiting()
+    {
+        return $this->hasMany(RaitIp::className(), ['product_id' => 'id']);
+    }
 }

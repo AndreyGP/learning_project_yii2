@@ -83,7 +83,7 @@ ltIE9AppAsset::register($this);
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Сравнение</a></li>
                             <li>
                                 <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart">
-                                    </i>Корзина<span class="badge cart_badge"><?php if (!isset($_COOKIE['QTY']))echo $_COOKIE['QTY']; ?></span>
+                                    </i>Корзина<span class="badge cart_badge"><?php echo $this->context->cartQty; ?></span>
                                 </a>
                             </li>
                             <li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
@@ -215,7 +215,7 @@ ltIE9AppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="/images/home/map.png" alt="" />
+                        <img src="/web/images/home/map.png" alt="" />
                         <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                     </div>
                 </div>
@@ -329,9 +329,18 @@ Modal::begin([
 Modal::end();
 
 ?>
-<script type="text/javascript" src="/web/js/cloudzoom.js"></script>
 <script type="text/javascript">
-    CloudZoom.quickStart();
+    $(document).ready(function () {
+        $("#jRateRead").jRate({
+            rating: <?php echo $this->context->raiting; ?>,
+            shapeGap: '5px',
+            width: 12,
+            height: 12,
+            startColor: '#FE980F',
+            endColor: '#FE980F',
+            readOnly: true
+        });
+    });
 </script>
 </html>
 <?php $this->endPage() ?>
