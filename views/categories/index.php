@@ -1,5 +1,8 @@
 <?php
 use app\components\MenuCategoryWidget;
+use app\components\BrandMenuWidget;
+use app\components\RecommendedWidget;
+use app\components\SaleWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
@@ -81,21 +84,13 @@ use yii\widgets\LinkPager;
                     <h2>Категории</h2>
                     <ul class="cat_menu category-products">
                         <?php echo MenuCategoryWidget::widget(['tpl' => 'menu']);?>
+                        <hr/>
+                        <li><a href="/novinki">Новинки месяца</a></li>
+                        <li><a href="/discount">Акции и скидки</a></li>
                     </ul>
 
                     <div class="brands_products"><!--brands_products-->
-                        <h2>Бренды</h2>
-                        <div class="brands-name">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(27)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(32)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(5)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(9)</span>Бренд</a></li>
-                                <li><a href="#"> <span class="pull-right">(4)</span>Бренд</a></li>
-                            </ul>
-                        </div>
+                        <?php echo BrandMenuWidget::widget();?>
                     </div><!--/brands_products-->
 
                     <div class="price-range" ><!--price-range-->
@@ -191,352 +186,29 @@ use yii\widgets\LinkPager;
     ]);
     ?>
 <?php endif;?>
-<?php if (!empty($recomend)): ?>
-                    <div class="recommended_items"><!--recommended_items-->
-                        <h2 class="title text-center">Рекомендуемые товары</h2>
+                <div class="recommended_items"><!--recommended_items-->
+                    <?php echo RecommendedWidget::widget();?>
+                </div><!--/recommended_items-->
 
-                        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-    <?php $count = count($recomend); $i = 0; foreach ($recomend as $rcmd):?>
-        <?php if ($i == 0):?>
-                                <div class="item active">
-        <?php endif; ?>
-        <?php if ($i % 3 == 0 && $i != 0):?>
-                                <div class="item">
-        <?php endif; ?>
-                                    <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <?php echo Html::img($rcmd['img_zoom'], ['alt' => 'recommend']);?>
-                                                        <h2><?php echo $rcmd['price'];?></h2>
-                                                        <p><?php echo $rcmd['title'];?></p>
-                                                        <a href="<?php Url::to(['/cart/add', 'id' => $rcmd['id']]);?>" data-id="<?php echo $rcmd['id'];?>" type="button" class="btn btn-default add-to-cart">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                            В корзину
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <?php $i++ ;?>
-            <?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
-                                </div>
-            <?php endif; ?>
-    <?php  endforeach;?>
-
-                            </div>
-                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div><!--/recommended_items-->
-<?php endif; ?>
                 <div class="category-tab"><!--category-tab-->
-                    <h2 class="title text-center">Распродажа</h2>
-                    <div class="col-sm-12">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tshirt" data-toggle="tab">Бренд 1</a></li>
-                            <li><a href="#blazers" data-toggle="tab">Бренд 2</a></li>
-                            <li><a href="#sunglass" data-toggle="tab">Бренд 3</a></li>
-                            <li><a href="#kids" data-toggle="tab">Бренд 4</a></li>
-                            <li><a href="#poloshirt" data-toggle="tab">Бренд 5</a></li>
-                        </ul>
-                    </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade active in" id="tshirt" >
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery1.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                В корзину
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery2.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                В корзину
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery3.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                В корзину
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery4.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                В корзину
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="blazers" >
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery4.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery3.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery2.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery1.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="sunglass" >
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery3.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery4.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery1.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery2.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="kids" >
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery1.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery2.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery3.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery4.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="poloshirt" >
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery2.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery4.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery3.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <img src="/web/images/home/gallery1.jpg" alt="" />
-                                            <h2>56</h2>
-                                            <p>Шмотка</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php echo SaleWidget::widget();?>
                 </div><!--/category-tab-->
 
             </div>
         </div>
+    </div>
+</section>
+<section id="advertisement">
+    <div class="container">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- You in the style Category -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9419103276015408"
+             data-ad-slot="4899547174"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 </section>

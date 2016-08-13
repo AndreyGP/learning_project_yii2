@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use app\models\Product;
+use yii\data\Pagination;
 //use app\models\Category;
 use app\models\RaitIp;
 use yii\web\HttpException;
@@ -73,5 +74,63 @@ class ProductsController extends AppController
         $rait_ip->product_id = $id;
 
         if ($product->save() && $rait_ip->save()) return true;
+    }
+
+    public function actionNovelty()
+    {
+        $query = Product::find()
+            ->asArray()
+            ->where(['is_new' => 1])
+            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+            ->orderBy('id DESC');
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 12,
+            'forcePageParam' => false,
+            'pageSizeParam' => false]);
+        $products = $query
+            ->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = $_SESSION['cart.qty'];
+
+        $cat_id['title'] = 'Новинки месяца';
+        $this->setCatMeta('T-Fashion | ' . $cat_id['title'],
+            'Модная и стильная одежда у Tatyana Fashion',
+            'Модная, стильная, одежда, женская, доставка по России, скидки');
+
+        return $this->render('novelty', compact('products', 'cat_id', 'pages'));
+    }
+
+    public function actionDiscount()
+    {
+        $query = Product::find()
+            ->asArray()
+            ->where(['discount' => 1])
+            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+            ->orderBy('id DESC');
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 12,
+            'forcePageParam' => false,
+            'pageSizeParam' => false]);
+        $products = $query
+            ->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = $_SESSION['cart.qty'];
+
+        $cat_id['title'] = 'Акции и скидки';
+        $this->setCatMeta('T-Fashion | ' . $cat_id['title'],
+            'Модная и стильная одежда у Tatyana Fashion',
+            'Модная, стильная, одежда, женская, доставка по России, скидки');
+
+        return $this->render('novelty', compact('products', 'cat_id', 'pages'));
     }
 }

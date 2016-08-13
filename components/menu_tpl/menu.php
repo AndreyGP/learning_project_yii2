@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 ?>
 <li>
-    <a href="<?= Url::to(['categories/view', 'alias' => $category['alias']]);?>">
+    <a href="<?= Url::to('/category/' . $category['alias']);?>">
         <?php if ($category['children']):?>
             <span class="badge pull-right"><i class="fa fa-plus"></i></span>
         <?php endif;?>

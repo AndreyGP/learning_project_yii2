@@ -43,7 +43,7 @@ class Brand extends ActiveRecord
         ];
     }
 
-    public function getProdBrands()
+    public function getProdbrands()
     {
         return $this->hasOne(Product::className(), ['brand_id' => 'id']);
     }

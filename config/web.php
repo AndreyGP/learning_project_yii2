@@ -55,8 +55,11 @@ $config = [
                 'category/<alias>/<page:\d+>' => 'categories/view',
                 'category/<alias>' => 'categories/view',
                 'product/rait' => 'products/rait',
-                'product/<id>' => 'products/view',
+                'product/<id:\d+>' => 'products/view',
                 'search' => 'categories/search',
+                'brand/<title>' => 'brands/view',
+                'novinki' => 'products/novelty',
+                'discount' => 'products/discount',
             ]
         ],
     ],

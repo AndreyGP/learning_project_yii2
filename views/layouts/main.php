@@ -308,6 +308,7 @@ Modal::begin([
 Modal::end();
 
 ?>
+<?php if ($this->context->raiting): ?>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#jRateRead").jRate({
@@ -321,6 +322,7 @@ Modal::end();
         });
     });
 </script>
+<?php endif;?>
 <!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>
     (function(){ var widget_id = 'ZOmeHwJZpY';var d=document;var w=window;function l(){

@@ -37,19 +37,11 @@ class CategoriesController extends AppController
             ->limit($pages->limit)
             ->all();
 
-        $recomend = Product::find()
-            ->asArray()
-            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
-            ->where(['recomended' => 1])
-            ->orderBy('id DESC')
-            ->limit(12)
-            ->all();
-
         $session = Yii::$app->session;
         $session->open();
         $this->cartQty = $_SESSION['cart.qty'];
 
-        return $this->render('index', compact('hits', 'pages', 'recomend'));
+        return $this->render('index', compact('hits', 'pages'));
     }
 
     public function actionView($alias = null)
@@ -77,6 +69,7 @@ class CategoriesController extends AppController
 
             return $this->render('view', compact('products', 'cat_id', 'pages'));
         }
+
         $cat_id = Category::find()
             ->asArray()
             ->where(['alias' => $alias])
@@ -89,10 +82,10 @@ class CategoriesController extends AppController
         $this->setCatMeta('T-Fashion | ' . $cat_id['title'], $cat_id['description'], $cat_id['keyword']);
 
         $query = Product::find()
-            ->asArray()
-            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
-            ->where(['category_id' => $cat_id['id']])
-            ->orderBy('id DESC');
+        ->asArray()
+        ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+        ->where(['category_id' => $cat_id['id']])
+        ->orderBy('id DESC');
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => 12,
