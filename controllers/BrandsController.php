@@ -19,6 +19,7 @@ class BrandsController extends AppController
         $session = Yii::$app->session;
         $session->open();
         $this->cartQty = $_SESSION['cart.qty'];
+        $this->like = $_SESSION['like.qty'];
 
         $brand = Brand::find()
             ->asArray()

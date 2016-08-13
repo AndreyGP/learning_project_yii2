@@ -46,6 +46,23 @@ class CartController extends AppController
         return $this->render('cart_modal', compact('session'));
     }
 
+    public function actionLiketocart()
+    {
+        $session = Yii::$app->session;
+        $session->open();
+        $_SESSION['cart'] = $_SESSION['like'];
+        $_SESSION['cart.qty'] = $_SESSION['like.qty'];
+        $_SESSION['cart.sum'] = $_SESSION['like.sum'];
+        $_SESSION['cart.prc'] = $_SESSION['like.prc'];
+        $session->remove('like');
+        $session->remove('like.qty');
+        $session->remove('like.sum');
+        $session->remove('like.prc');
+        $this->layout = false;
+
+        return $this->render('cart_modal', compact('session'));
+    }
+
     public function actionRecalc($id, $action)
     {
         $session = Yii::$app->session;
@@ -90,6 +107,7 @@ class CartController extends AppController
     {
         $session = Yii::$app->session;
         $session->open();
+        $this->like = $_SESSION['like.qty'];
         $this->setCatMeta('T-Fashion | Корзина');
         $order = new Order();
         if ($order->load(Yii::$app->request->post())){

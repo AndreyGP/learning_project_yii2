@@ -15,6 +15,7 @@ class AppController extends Controller
 {
     public $raiting;
     public $cartQty;
+    public $like;
 
     protected function setCatMeta($cat_title = null, $cat_description = null, $cat_keywords = null)
     {

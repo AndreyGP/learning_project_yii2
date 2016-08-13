@@ -125,6 +125,7 @@ class ProductsController extends AppController
         $session = Yii::$app->session;
         $session->open();
         $this->cartQty = $_SESSION['cart.qty'];
+        $this->like = $_SESSION['like.qty'];
 
         $cat_id['title'] = 'Акции и скидки';
         $this->setCatMeta('T-Fashion | ' . $cat_id['title'],

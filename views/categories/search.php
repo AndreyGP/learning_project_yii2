@@ -113,8 +113,8 @@ use yii\widgets\LinkPager;
                                     </div>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
-                                            <li><a href="#"><i class="fa fa-plus-square"></i>В избранное</a></li>
-                                            <li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li>
+                                            <li><a href="<?php echo Url::to(['like/add', 'id' => $model['id']]);?> " class="add-to-like" data-id="<?php echo $model['id'];?>"><i class="fa fa-plus-square"></i>В избранное</a></li>
+                                            <!--li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li-->
                                         </ul>
                                     </div>
                                 </div>

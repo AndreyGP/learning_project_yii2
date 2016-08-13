@@ -7,7 +7,6 @@
  */
 
 namespace app\models;
-use app\models\AppActiveModel;
 
 class Cart extends AppActiveModel
 {

@@ -79,10 +79,13 @@ ltIE9AppAsset::register($this);
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
-                            <li><a href="#"><i class="fa fa-star"  ></i> Избранное</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Сравнение</a></li>
                             <li>
-                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart" <?php if ($this->context->cartQty > 0) echo 'style="color: #008000"';?>>
+                                <a href="#" id="likeOn"><i class="fa fa-star" <?php if ($this->context->like > 0) echo 'style="color: #FE980F"';?> >
+                                    </i> Избранное<span class="badge like_badge"><?php echo $this->context->like; ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart cart-yes" <?php if ($this->context->cartQty > 0) echo 'style="color: #008000"';?>>
                                     </i>Корзина<span class="badge cart_badge"><?php echo $this->context->cartQty; ?></span>
                                 </a>
                             </li>
@@ -282,6 +285,7 @@ ltIE9AppAsset::register($this);
 <?php $this->endBody() ?>
 
 </body>
+<!-- Cart modal windows-->
 <?php
 Modal::begin([
     'header' => '<h2>Ваша Корзина</h2>',
@@ -308,6 +312,35 @@ Modal::begin([
 Modal::end();
 
 ?>
+<!-- /Cart modal windows-->
+<!-- Like modal windows-->
+<?php
+Modal::begin([
+    'header' => '<h2>Вам понравилось</h2>',
+    'footer' => '<button type="button" class="btn btn-danger" id="clearLike">Очистить</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+                 <a href="/cart/order" class="btn btn-success" id="addToCart"><b>Добавить в корзину</b></a>',
+    'size' => 'modal-lg',
+    'id' => 'like'
+]);
+Modal::end();
+
+
+Modal::begin([
+    'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>',
+    'size' => 'modal-lg',
+    'id' => 'likeNo'
+]);
+?>
+<center>
+    <h2>Вы ничего не отметили в избранное...</h2>
+    <img src="/web/images/netu.jpg" alt="Ку..." width="350">
+</center>
+<?php
+Modal::end();
+
+?>
+<!-- /Like modal windows-->
 <?php if ($this->context->raiting): ?>
 <script type="text/javascript">
     $(document).ready(function () {
