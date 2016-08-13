@@ -18,8 +18,8 @@ $(document).ready(function(){
 		shapeGap: '10px',//Правый отступ
 		minSelected: 3,//Минимально допустимая оценка
 		precision: 0.5,//Шаг в оценке
-		width: 40,//Ширина
-		height: 40,//высота
+		width: 30,//Ширина
+		height: 30,//высота
 		startColor: 'yellow',//Начинается с цвета
 		endColor: 'green',//Заканчивается цветом
 		min: 1,//Минимальная на первой звезде

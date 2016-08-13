@@ -90,7 +90,7 @@ class CartController extends AppController
     {
         $session = Yii::$app->session;
         $session->open();
-        $this->setCatMeta('Ты в стиле! | Корзина');
+        $this->setCatMeta('T-Fashion | Корзина');
         $order = new Order();
         if ($order->load(Yii::$app->request->post())){
             $order->qty = $session['cart.qty'];

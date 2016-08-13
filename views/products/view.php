@@ -1,5 +1,6 @@
 <?php
 use app\components\MenuCategoryWidget;
+use app\components\ProductPlusWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
@@ -132,11 +133,12 @@ use yii\widgets\LinkPager;
                             ?>
 <?php endif;?>
 <?php if ($product['discount'] == 1):?>
-    <?php echo Html::img('@web/images/product-details/new.jpg', [
-        'class' => "newarrival",
-        'alt' => "discount"
-    ]);
-    ?>
+                            <?php echo Html::img('@web/images/product-details/8.png', [
+                                'class' => "newarrival",
+                                'alt' => "discount",
+                                'style' => 'height: 60px;'
+                            ]);
+                            ?>
 <?php endif;?>
                             <h2><?php echo $product['title'];?></h2>
                             <p>Артикуль: <?php echo $product['vendor_code']; ?></p>
@@ -221,134 +223,7 @@ use yii\widgets\LinkPager;
                         </div><!--/product-information-->
                     </div>
                 </div><!--/product-details-->
-<?php if (!empty($hits)): ?>
-                <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">Популярные товары</h2>
-
-                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-<?php $count = count($hits); $i = 0; foreach ($hits as $hit):?>
-<?php if ($i == 0):?>
-                            <div class="item active">
-<?php endif; ?>
-<?php if ($i % 3 == 0 && $i != 0):?>
-                            <div class="item">
-<?php endif; ?>
-<?php if ($hit['id'] == $product['id']): ?>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper" style=" border: none;">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center" style="max-height: 385px;">
-                                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                                <!-- Product recommend -->
-                                                <ins class="adsbygoogle"
-                                                     style="display:block"
-                                                     data-ad-client="ca-pub-9419103276015408"
-                                                     data-ad-slot="7785634779"
-                                                     data-ad-format="auto"></ins>
-                                                <script>
-                                                    (adsbygoogle = window.adsbygoogle || []).push({});
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-       <?php $i++;?>
-<?php continue; endif;?>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <?php echo Html::img($hit['img_zoom'], ['alt' => 'recommend']);?>
-                                                <h2><?php echo $hit['price'];?></h2>
-                                                <p><a class="prod_cart" href="/product/<?php echo $hit['id'];?>"><?php echo $hit['title'];?></a></p>
-                                                <a href="<?php Url::to(['/cart/add', 'id' => $hit['id']]);?>" data-id="<?php echo $hit['id'];?>" type="button" class="btn btn-default add-to-cart">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                    В корзину
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-<?php $i++ ;?>
-<?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
-                            </div>
-<?php endif; ?>
-<?php  endforeach;?>
-                        </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div><!--/recommended_items-->
-<?php endif; ?>
-<?php if (!empty($recomend)): ?>
-            <div class="recommended_items"><!--recommended_items-->
-                <h2 class="title text-center">Рекомендованные товары</h2>
-
-                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-<?php $count = count($recomend); $i = 0; foreach ($recomend as $hit):?>
-<?php if ($i == 0):?>
-                        <div class="item active">
-<?php endif; ?>
-<?php if ($i % 3 == 0 && $i != 0):?>
-                            <div class="item">
-<?php endif; ?>
-<?php if ($hit['id'] == $product['id']): ?>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper" style=" border: none;">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center" style="max-height: 385px;">
-                                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                                    <!-- Product recommend -->
-                                                    <ins class="adsbygoogle"
-                                                         style="display:block"
-                                                         data-ad-client="ca-pub-9419103276015408"
-                                                         data-ad-slot="7785634779"
-                                                         data-ad-format="auto"></ins>
-                                                    <script>
-                                                        (adsbygoogle = window.adsbygoogle || []).push({});
-                                                    </script>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-<?php $i++;?>
-<?php continue; endif;?>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <?php echo Html::img($hit['img_zoom'], ['alt' => 'recommend']);?>
-                                                <h2><?php echo $hit['price'];?></h2>
-                                                <p><a class="prod_cart" href="/product/<?php echo $hit['id'];?>"><?php echo $hit['title'];?></a></p>
-                                                <a href="<?php Url::to(['/cart/add', 'id' => $hit['id']]);?>" data-id="<?php echo $hit['id'];?>" type="button" class="btn btn-default add-to-cart">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                    В корзину
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-<?php $i++ ;?>
-<?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
-                            </div>
-<?php endif; ?>
-<?php  endforeach;?>
-                        </div>
-                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div><!--/recommended_items-->
-<?php endif; ?>
+                <?php echo ProductPlusWidget::widget();?>
                 <p><a name="bottom"></a></p>
             </div>
             <div id="hypercomments_widget"></div>

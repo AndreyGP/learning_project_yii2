@@ -8,7 +8,7 @@
 
 namespace app\controllers;
 use app\models\Product;
-use app\models\Category;
+//use app\models\Category;
 use app\models\RaitIp;
 use yii\web\HttpException;
 use Yii;
@@ -37,26 +37,11 @@ class ProductsController extends AppController
         $session->open();
         $this->cartQty = $_SESSION['cart.qty'];
 
-        $this->setProdMeta('Ты в стиле! | ' . $product['title'],
+        $this->setProdMeta('T-Fashion | ' . $product['title'],
             $product['data_title'],
             $product['data_description'],
             $product['keyword'],
             $product['img_zoom']);
-
-        $hits = Product::find()
-            ->asArray()
-            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
-            ->where(['hit' => 1])
-            ->orderBy('id DESC')
-            ->limit(12)
-            ->all();
-        $recomend = Product::find()
-            ->asArray()
-            ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
-            ->where(['recomended' => 1])
-            ->orderBy('id DESC')
-            ->limit(12)
-            ->all();
 
         $ip = $_SERVER['REMOTE_ADDR'];
         $user = RaitIp::find()
@@ -69,7 +54,7 @@ class ProductsController extends AppController
             $raiting = true;
         }
 
-        return $this->render('view', compact('product', 'hits', 'recomend', 'raiting', 'ip'));
+        return $this->render('view', compact('product', 'raiting', 'ip'));
 
 
     }

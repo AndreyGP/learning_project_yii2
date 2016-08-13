@@ -22,39 +22,39 @@ use yii\widgets\LinkPager;
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>Ты</span> в стиле!</h1>
+                                <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
                                 <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
-                                <button type="button" class="btn btn-default get">Получи сейчас</button>
+                                <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="/home/pricing.png"  class="pricing" alt="" />
+                                <img src="/web/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <!--img src="/home/pricing.png"  class="pricing" alt="" /-->
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>Ты</span> в стиле!</h1>
+                                <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
                                 <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
-                                <button type="button" class="btn btn-default get">Получи сейчас</button>
+                                <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
                                 <img src="/web/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                <img src="/home/pricing.png"  class="pricing" alt="" />
+                                <!--img src="/home/pricing.png"  class="pricing" alt="" /-->
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>Ты</span> в стиле!</h1>
+                                <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
                                 <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
-                                <button type="button" class="btn btn-default get">Получи сейчас</button>
+                                <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                <img src="home/pricing.png" class="pricing" alt="" />
+                                <img src="/web/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                <!--img src="home/pricing.png" class="pricing" alt="" /-->
                             </div>
                         </div>
 
@@ -236,13 +236,14 @@ use yii\widgets\LinkPager;
                     </div><!--/recommended_items-->
 <?php endif; ?>
                 <div class="category-tab"><!--category-tab-->
+                    <h2 class="title text-center">Распродажа</h2>
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-                            <li><a href="#blazers" data-toggle="tab">Blazers</a></li>
-                            <li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
-                            <li><a href="#kids" data-toggle="tab">Kids</a></li>
-                            <li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
+                            <li class="active"><a href="#tshirt" data-toggle="tab">Бренд 1</a></li>
+                            <li><a href="#blazers" data-toggle="tab">Бренд 2</a></li>
+                            <li><a href="#sunglass" data-toggle="tab">Бренд 3</a></li>
+                            <li><a href="#kids" data-toggle="tab">Бренд 4</a></li>
+                            <li><a href="#poloshirt" data-toggle="tab">Бренд 5</a></li>
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -251,9 +252,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery1.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
@@ -267,9 +268,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery2.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
@@ -283,9 +284,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery3.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
@@ -299,9 +300,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery4.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 В корзину
@@ -318,9 +319,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery4.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -331,9 +332,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery3.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -344,9 +345,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery2.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -357,9 +358,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery1.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -373,9 +374,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery3.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -386,9 +387,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery4.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -399,9 +400,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery1.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -412,9 +413,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery2.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -428,9 +429,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery1.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -441,9 +442,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery2.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -454,9 +455,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery3.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -467,9 +468,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery4.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -483,9 +484,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery2.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -496,9 +497,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery4.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -509,9 +510,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery3.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 
@@ -522,9 +523,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
-                                            <h2>$56</h2>
-                                            <p>Easy Polo Black Edition</p>
+                                            <img src="/web/images/home/gallery1.jpg" alt="" />
+                                            <h2>56</h2>
+                                            <p>Шмотка</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                         </div>
 

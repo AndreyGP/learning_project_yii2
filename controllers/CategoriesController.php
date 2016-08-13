@@ -18,8 +18,8 @@ class CategoriesController extends AppController
 {
     public function actionIndex()
     {
-        $this->setCatMeta('Ты в стиле! | Стильная одежда',
-            'Ты в стиле! Интернет магазин стильных женских вещей',
+        $this->setCatMeta('Tatyana Fashion | Стильная одежда',
+            'Tatyana Fashion! Интернет магазин стильных женских вещей',
             'Женские вещи, интернет магазин, стильные вещи, скидки, новинки, доставка по России');
 
         $query = Product::find()
@@ -52,8 +52,31 @@ class CategoriesController extends AppController
         return $this->render('index', compact('hits', 'pages', 'recomend'));
     }
 
-    public function actionView($alias)
+    public function actionView($alias = null)
     {
+        if ($alias == null){
+            $query = Product::find()
+                ->asArray()
+                ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
+                ->orderBy('id DESC');
+            $pages = new Pagination([
+                'totalCount' => $query->count(),
+                'pageSize' => 12,
+                'forcePageParam' => false,
+                'pageSizeParam' => false]);
+            $products = $query
+                ->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+
+            $session = Yii::$app->session;
+            $session->open();
+            $this->cartQty = $_SESSION['cart.qty'];
+            $cat_id['title'] = 'Все модели одежды';
+            $this->setCatMeta('T-Fashion | ' . $cat_id['title'], 'Модная и стильная одежда у Tatyana Fashion', 'Модная, стильная, одежда, женская, доставка по России, скидки');
+
+            return $this->render('view', compact('products', 'cat_id', 'pages'));
+        }
         $cat_id = Category::find()
             ->asArray()
             ->where(['alias' => $alias])
@@ -63,7 +86,7 @@ class CategoriesController extends AppController
             throw new HttpException('404', 'Страница не существует');
         }
 
-        $this->setCatMeta('Ты в стиле! | ' . $cat_id['title'], $cat_id['description'], $cat_id['keyword']);
+        $this->setCatMeta('T-Fashion | ' . $cat_id['title'], $cat_id['description'], $cat_id['keyword']);
 
         $query = Product::find()
             ->asArray()
@@ -89,7 +112,7 @@ class CategoriesController extends AppController
 
     public function actionSearch()
     {
-        $this->setCatMeta('Ты в стиле! | Результаты поиска' );
+        $this->setCatMeta('T-Fashion | Результаты поиска' );
         $q = trim(Yii::$app->request->get('q'));
         if (!$q) return $this->render('search');
         $query = Product::find()

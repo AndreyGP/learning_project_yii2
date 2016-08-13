@@ -51,6 +51,7 @@ $config = [
                     'route' => '/',
                     'suffix' => ''
                 ],
+                'category' => 'categories/view',
                 'category/<alias>/<page:\d+>' => 'categories/view',
                 'category/<alias>' => 'categories/view',
                 'product/rait' => 'products/rait',

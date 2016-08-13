@@ -46,8 +46,8 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +7(000)-000-00-00</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@youinthestyle.ru</a></li>
+                            <li><a href="tel:+7(000)-000-00-00"><i class="fa fa-phone"></i> +7(000)-000-00-00</a></li>
+                            <li><a href="mailto:info@tatyana-fashion.ru"><i class="fa fa-envelope"></i> info@tatyana-fashion.ru</a></li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ ltIE9AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="/"><img src="/web/imags/home/logo.png" alt="" /></a>
+                        <a href="/"><img src="/web/images/home/logo.png" alt="" /></a>
                     </div>
 
                 </div>
@@ -79,10 +79,10 @@ ltIE9AppAsset::register($this);
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Избранное</a></li>
+                            <li><a href="#"><i class="fa fa-star"  ></i> Избранное</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Сравнение</a></li>
                             <li>
-                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart">
+                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart" <?php if ($this->context->cartQty > 0) echo 'style="color: #008000"';?>>
                                     </i>Корзина<span class="badge cart_badge"><?php echo $this->context->cartQty; ?></span>
                                 </a>
                             </li>
@@ -148,75 +148,55 @@ ltIE9AppAsset::register($this);
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
-                        <h2><span>Ты</span> в стиле!</h2>
-                        <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных</p>
+                        <h2><span>T</span>-<span>F</span>ashion</h2>
+                        <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь среди самых стильных</p>
                     </div>
                 </div>
                 <div class="col-sm-7">
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe1.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <div class="iframe-img">
+                                <img src="/web/images/home/iframe1.png" alt="" />
+                            </div>
+                            <p>Выделяться из всех</p>
+                            <h2>Tatyana Fashion</h2>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe2.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <div class="iframe-img">
+                                <img src="/web/images/home/iframe2.png" alt="" />
+                            </div>
+                            <p>Всегда есть что одеть</p>
+                            <h2>Tatyana Fashion</h2>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe3.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <div class="iframe-img">
+                                <img src="/web/images/home/iframe3.png" alt="" />
+                            </div>
+                            <p>На все случаи жизни</p>
+                            <h2>Tatyana Fashion</h2>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="/images/home/iframe4.png" alt="" />
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <div class="iframe-img">
+                                <img src="/web/images/home/iframe4.png" alt="" />
+                            </div>
+                            <p>Гибкая система скидок</p>
+                            <h2>Tatyana Fashion</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
                         <img src="/web/images/home/map.png" alt="" />
-                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                        <p>Лучшая одежда со всего мира. Современный стиль для каждого.</p>
                     </div>
                 </div>
             </div>
@@ -226,19 +206,18 @@ ltIE9AppAsset::register($this);
     <div class="footer-widget">
         <div class="container">
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-7">
                     <div class="single-widget">
-                        <h2>Service</h2>
+                        <h2>Обслуживание</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Change Location</a></li>
+                            <li><a href="#">Онлайн помощь</a></li>
+                            <li><a href="#">Свяжитесь с нами</a></li>
+                            <li><a href="#">Статус заказа</a></li>
                             <li><a href="#">FAQ’s</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <!--div class="col-sm-2">
                     <div class="single-widget">
                         <h2>Quock Shop</h2>
                         <ul class="nav nav-pills nav-stacked">
@@ -273,14 +252,14 @@ ltIE9AppAsset::register($this);
                             <li><a href="#">Copyright</a></li>
                         </ul>
                     </div>
-                </div>
+                </div-->
                 <div class="col-sm-3 col-sm-offset-1">
                     <div class="single-widget">
-                        <h2>About Shopper</h2>
+                        <h2>О Tatyana Fashion</h2>
                         <form action="#" class="searchform">
-                            <input type="text" placeholder="Your email address" />
+                            <input type="text" placeholder="Ваш email адрес" />
                             <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                            <p>Get the most recent updates from <br />our site and be updated your self...</p>
+                            <p>Получайте самые последние обновления с нашего сайта и обновляйте себя в новом стиле...</p>
                         </form>
                     </div>
                 </div>
@@ -292,8 +271,8 @@ ltIE9AppAsset::register($this);
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                <p class="pull-left">Copyright © 2016 Tatyana Fashion. Все права защищены.</p>
+                <!--p class="pull-right">Изготовление сайтов <span><a target="_blank" href="http://www.takeyousite.ru">Take You site</a></span></p-->
             </div>
         </div>
     </div>
@@ -342,5 +321,10 @@ Modal::end();
         });
     });
 </script>
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+    (function(){ var widget_id = 'ZOmeHwJZpY';var d=document;var w=window;function l(){
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+<!-- {/literal} END JIVOSITE CODE -->
 </html>
 <?php $this->endPage() ?>

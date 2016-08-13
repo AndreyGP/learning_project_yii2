@@ -2,7 +2,7 @@
 use app\components\MenuCategoryWidget;
 /* @var $this yii\web\View */
 
-$this->title = 'Ты в стиле! | Стильная одежда';
+$this->title = 'Tatyana Fashion | Стильная одежда';
 ?>
 
 <section id="slider"><!--slider-->
@@ -19,14 +19,14 @@ $this->title = 'Ты в стиле! | Стильная одежда';
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>Ты</span> в стиле!</h1>
+                                <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
                                 <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
                                 <button type="button" class="btn btn-default get">Получи сейчас</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                <img src="/home/pricing.png"  class="pricing" alt="" />
+                                <img src="/web/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <!--img src="/home/pricing.png"  class="pricing" alt="" /-->
                             </div>
                         </div>
                         <div class="item">
