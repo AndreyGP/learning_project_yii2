@@ -27,6 +27,18 @@ use yii\helpers\Html;
                                         В корзину
                                     </a>
                                 </div>
+                                <?php if ($hit['is_new'] == 1):?>
+                                    <img class="new" alt="" src="/web/images/home/new.png">
+                                <?php endif;?>
+                                <?php if ($hit['discount'] == 1):?>
+                                    <img class="new" alt="" src="/web/images/home/sale.png">
+                                <?php endif;?>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="<?php echo Url::to(['like/add', 'id' => $hit['id']]);?> " class="add-to-like" data-id="<?php echo $hit['id'];?>"><i class="fa fa-plus-square"></i>В избранное</a></li>
+                                    <!--li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li-->
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -70,6 +82,18 @@ use yii\helpers\Html;
                                         В корзину
                                     </a>
                                 </div>
+                                <?php if ($item['is_new'] == 1):?>
+                                    <img class="new" alt="" src="/web/images/home/new.png">
+                                <?php endif;?>
+                                <?php if ($item['discount'] == 1):?>
+                                    <img class="new" alt="" src="/web/images/home/sale.png">
+                                <?php endif;?>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="<?php echo Url::to(['like/add', 'id' => $item['id']]);?> " class="add-to-like" data-id="<?php echo $item['id'];?>"><i class="fa fa-plus-square"></i>В избранное</a></li>
+                                    <!--li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li-->
+                                </ul>
                             </div>
                         </div>
                     </div>

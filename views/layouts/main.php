@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
-use yii\bootstrap\NavBar;
 use app\assets\AppAsset;
 use app\assets\ltIE9AppAsset;
 use yii\helpers\Url;
@@ -78,7 +77,14 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Профиль</a></li>
+<?php if (!Yii::$app->user->isGuest):?>
+                            <li><i class="fa fa-user"></i>
+                               <?php echo Yii::$app->user->identity['name'] . ' - ' . Yii::$app->user->identity['role'];?>
+                            </li>
+                            <li><a href="/admin/orders" id="likeOn"><i class="fa fa-shopping-cart"></i> Заказы</a> </li>
+                            <li><a href="/admin"><i class="glyphicon glyphicon-home"></i> Админка</a></li>
+                            <li><a href="/site/logout"><i class="glyphicon glyphicon-log-in"></i> Выход</a></li>
+<?php else:?>
                             <li>
                                 <a href="#" id="likeOn"><i class="fa fa-star" <?php if ($this->context->like > 0) echo 'style="color: #FE980F"';?> >
                                     </i> Избранное<span class="badge like_badge"><?php echo $this->context->like; ?></span>
@@ -89,7 +95,8 @@ ltIE9AppAsset::register($this);
                                     </i>Корзина<span class="badge cart_badge"><?php echo $this->context->cartQty; ?></span>
                                 </a>
                             </li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Войти</a></li>
+                            <li><a href="/admin"><i class="fa fa-lock"></i> Войти</a></li>
+<?php endif;?>
                         </ul>
                     </div>
                 </div>
@@ -113,21 +120,20 @@ ltIE9AppAsset::register($this);
                             <li><a href="/" class="active">Главная</a></li>
                             <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Товары</a></li>
-                                    <li><a href="product-details.html">Карточка товара</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Корзина</a></li>
-                                    <li><a href="login.html">Войти</a></li>
+                                    <li><a href="/category">Все товары</a></li>
+                                    <li><a href="#">Избранное</a></li>
+                                    <li><a href="/cart/order">Корзина</a></li>
+                                    <li><a href="#">Войти</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">О нас<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
+                            <li class="dropdown"><a href="#">О нас</i></a>
+                                <!--ul role="menu" class="sub-menu">
                                     <li><a href="blog.html">Blog List</a></li>
                                     <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
+                                </ul-->
                             </li>
-                            <li><a href="404.html">Отзывы</a></li>
-                            <li><a href="contact-us.html">Контакты</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="#">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
@@ -341,7 +347,7 @@ Modal::end();
 
 ?>
 <!-- /Like modal windows-->
-<?php if ($this->context->raiting): ?>
+<?php if (isset($this->context->raiting)): ?>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#jRateRead").jRate({
@@ -356,6 +362,25 @@ Modal::end();
     });
 </script>
 <?php endif;?>
+<!--LiveInternet logo-->
+<a href="#"
+   target="_blank"><img src="//counter.yadro.ru/logo?14.1"
+                        title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+                        alt="" style="border: 0;" width="88" height="31"/></a>
+<!--/LiveInternet-->
+<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter38295485 = new Ya.Metrika({ id:38295485, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/38295485" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+<!-- Google Analistics counter -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-80202499-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- Google Analistics counter -->
 <!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>
     (function(){ var widget_id = 'ZOmeHwJZpY';var d=document;var w=window;function l(){

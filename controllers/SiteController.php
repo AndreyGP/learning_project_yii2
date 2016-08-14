@@ -4,12 +4,11 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * @inheritdoc
@@ -31,7 +30,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -60,6 +59,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
         return $this->render('index');
     }
 
@@ -70,6 +73,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -102,6 +109,10 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -120,6 +131,10 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        $session = Yii::$app->session;
+        $session->open();
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
         return $this->render('about');
     }
 }

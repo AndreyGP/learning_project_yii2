@@ -39,8 +39,8 @@ class CategoriesController extends AppController
 
         $session = Yii::$app->session;
         $session->open();
-        $this->cartQty = $_SESSION['cart.qty'];
-        $this->like = $_SESSION['like.qty'];
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
 
         return $this->render('index', compact('hits', 'pages'));
     }
@@ -64,8 +64,8 @@ class CategoriesController extends AppController
 
             $session = Yii::$app->session;
             $session->open();
-            $this->cartQty = $_SESSION['cart.qty'];
-            $this->like = $_SESSION['like.qty'];
+            $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+            $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
             $cat_id['title'] = 'Все модели одежды';
             $this->setCatMeta('T-Fashion | ' . $cat_id['title'], 'Модная и стильная одежда у Tatyana Fashion', 'Модная, стильная, одежда, женская, доставка по России, скидки');
 
@@ -100,8 +100,8 @@ class CategoriesController extends AppController
 
         $session = Yii::$app->session;
         $session->open();
-        $this->cartQty = $_SESSION['cart.qty'];
-        $this->like = $_SESSION['like.qty'];
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
 
         return $this->render('view', compact('products', 'cat_id', 'pages'));
     }
@@ -136,8 +136,8 @@ class CategoriesController extends AppController
 
         $session = Yii::$app->session;
         $session->open();
-        $this->cartQty = $_SESSION['cart.qty'];
-        $this->like = $_SESSION['like.qty'];
+        $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
+        $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
 
         return $this->render('search', compact('products', 'pages', 'q'));
     }

@@ -8,6 +8,13 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'defaultRoute' => 'categories/index',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+            //'loginUrl' => 'login',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -30,6 +37,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+            /*'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'tanyakhonya@gmail.com',
+                'password' => 'Qlr93THfda34Ui',
+                'port' => '465',
+                'encryption' => 'tls',
+            ],*/
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -60,6 +75,8 @@ $config = [
                 'brand/<title>' => 'brands/view',
                 'novinki' => 'products/novelty',
                 'discount' => 'products/discount',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
             ]
         ],
     ],

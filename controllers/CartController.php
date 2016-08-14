@@ -117,6 +117,16 @@ class CartController extends AppController
             $order->sum = ($order->black_sum / 100) * (100 - $order->prc);
             if ($order->save()){
                 $this->saveOrderItems($session['cart'], $order->id);
+                Yii::$app->mailer->compose('order', compact('session'))
+                    ->setFrom(['info@tatyana-fashion.ru' => 'Tatyana Fashion - клиентская служба'])
+                    ->setTo($order->email)
+                    ->setSubject('Ваш заказ в интернет-магазине Tatyana Fashion')
+                    ->send();
+                Yii::$app->mailer->compose('order', compact('session'))
+                    ->setFrom(['no-reply@tatyana-fashion.ru' => 'Tatyana Fashion'])
+                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setSubject('Новый заказ в интернет-магазине Tatyana Fashion')
+                    ->send();
                 Yii::$app->session->setFlash('success', '<strong>Благодарим Вас Ваш заказ!</strong> Ближайшее время с Вами свяжется наш менеджер.');
                 $session->remove('cart');
                 $session->remove('cart.qty');

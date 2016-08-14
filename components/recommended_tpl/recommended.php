@@ -29,6 +29,18 @@ use yii\helpers\Html;
                                     В корзину
                                 </a>
                             </div>
+                            <?php if ($rcmd['is_new'] == 1):?>
+                                <img class="new" alt="" src="/web/images/home/new.png">
+                            <?php endif;?>
+                            <?php if ($rcmd['discount'] == 1):?>
+                                <img class="new" alt="" src="/web/images/home/sale.png">
+                            <?php endif;?>
+                        </div>
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="<?php echo Url::to(['like/add', 'id' => $rcmd['id']]);?> " class="add-to-like" data-id="<?php echo $rcmd['id'];?>"><i class="fa fa-plus-square"></i>В избранное</a></li>
+                                <!--li><a href="#"><i class="fa fa-plus-square"></i>К сравнению</a></li-->
+                            </ul>
                         </div>
                     </div>
                 </div>
