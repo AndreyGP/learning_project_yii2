@@ -1,8 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\Modal;
-use yii\bootstrap\NavBar;
 use app\assets\AppAsset;
 use app\assets\ltIE9AppAsset;
 use yii\helpers\Url;
@@ -50,10 +48,10 @@ ltIE9AppAsset::register($this);
                                 <li><i class="fa fa-user"></i>
                                    <?php echo Yii::$app->user->identity['name'] . ' - ' . Yii::$app->user->identity['role'];?>
                                 </li>
-                                <li><a href="/"><i class="glyphicon glyphicon-eye-open"></i> На сайт</a></li>
-                                <li><a href="/admin/orders" id="likeOn"><i class="fa fa-shopping-cart"></i> Заказы</a> </li>
+                                <li><a href="<?= Url::to(['/'])?>"><i class="glyphicon glyphicon-eye-open"></i> На сайт</a></li>
+                                <li><a href="<?= Url::to(['/admin'])?>" ><i class="fa fa-shopping-cart"></i> Заказы</a> </li>
 <?php if (!Yii::$app->user->isGuest):?>
-                                <li><a href="/site/logout"><i class="glyphicon glyphicon-log-in"></i> Выход</a></li>
+                                <li><a href="<?= Url::to(['/site/logout'])?>"><i class="glyphicon glyphicon-log-in"></i> Выход</a></li>
 <?php endif;?>
                             </ul>
                         </div>
@@ -64,28 +62,64 @@ ltIE9AppAsset::register($this);
         <div class="header-bottom"><!--header-bottom-->
             <div class="container">
                 <div class="row">
-
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="<?= Url::to(['/admin'])?>" class="active">Главная</a></li>
+                                <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="<?= Url::to(['categories/index'])?>">Список категорий</a></li>
+                                        <li><a href="<?= Url::to(['categories/create'])?>">Добавить категорию</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#">Бренды<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="<?= Url::to(['brands/index'])?>">Список брендов</a></li>
+                                        <li><a href="<?= Url::to(['brands/create'])?>">Добавить бренд</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="#">Товары<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="<?= Url::to(['products/index'])?>">Список товаров</a></li>
+                                        <li><a href="<?= Url::to(['products/create'])?>">Добавить товар</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-
+<div class="container">
+    <?php if (Yii::$app->session->hasFlash('success')):?>
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <?php echo Yii::$app->session->getFlash('success');?>
+        </div>
+    <?php endif;?>
+    <?php if (Yii::$app->session->hasFlash('error')):?>
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <?php echo Yii::$app->session->getFlash('error');?>
+        </div>
+    <?php endif;?>
     <?= $content; ?>
-
+</div>
     <footer id="footer"><!--Footer-->
 
     </footer><!--/Footer-->
 
     <?php $this->endBody() ?>
-
     </body>
-
-    <!--LiveInternet logo-->
-    <a href="#"
-       target="_blank"><img src="//counter.yadro.ru/logo?14.1"
-                            title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
-                            alt="" style="border: 0;" width="88" height="31"/></a>
-    <!--/LiveInternet-->
     <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter38295485 = new Ya.Metrika({ id:38295485, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/38295485" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
     <!-- Google Analistics counter -->
     <script>
@@ -99,10 +133,5 @@ ltIE9AppAsset::register($this);
 
     </script>
     <!-- Google Analistics counter -->
-    <!-- BEGIN JIVOSITE CODE {literal} -->
-    <script type='text/javascript'>
-        (function(){ var widget_id = 'ZOmeHwJZpY';var d=document;var w=window;function l(){
-            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-    <!-- {/literal} END JIVOSITE CODE -->
     </html>
 <?php $this->endPage() ?>

@@ -8,7 +8,9 @@ use Yii;
 
 class MenuCategoryWidget extends Widget
 {
+    public $id;
     public $tpl;
+    public $model;
     public $data;
     public $tree;
     public $html;
@@ -24,16 +26,19 @@ class MenuCategoryWidget extends Widget
 
     public function run()
     {
-        $menu = Yii::$app->cache->get('cat_menu');
-        if (empty($menu)){
-            $this->data = Category::find()->asArray()->indexBy('id')->all();
-            $this->tree = $this->mapTree();
-            $this->html = $this->menuHtml($this->tree);
-            Yii::$app->cache->set('cat_menu', $this->html, 604800);
-        } else {
-            $this->html = $menu;
+        if ($this->tpl == 'menu.php'){
+            $menu = Yii::$app->cache->get('cat_menu');
+            if (!empty($menu)) return $menu;
         }
-        //debug($this->html);
+        $this->id = Yii::$app->request->get('id') ? Yii::$app->request->get('id') : false;
+        $this->data = Category::find()->asArray()->indexBy('id')->all();
+        $this->tree = $this->mapTree();
+        $this->html = $this->menuHtml($this->tree);
+
+        if ($this->tpl == 'menu.php'){
+            Yii::$app->cache->set('cat_menu', $this->html, 604800);
+        }
+
         return $this->html;
     }
 
@@ -49,16 +54,16 @@ class MenuCategoryWidget extends Widget
         return $tree;
     }
 
-    protected function menuHtml($categories)
+    protected function menuHtml($categories, $tab = false)
     {
         $htmlStr = '';
         foreach ($categories as $item){
-            $htmlStr .= $this->menuTemplade($item);
+            $htmlStr .= $this->menuTemplade($item, $tab);
         }
         return $htmlStr;
     }
 
-    protected function menuTemplade($category){
+    protected function menuTemplade($category, $tab){
         ob_start();
         include __DIR__ . '/menu_tpl/' . $this->tpl;
         return ob_get_clean();

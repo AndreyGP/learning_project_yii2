@@ -81,9 +81,8 @@ ltIE9AppAsset::register($this);
                             <li><i class="fa fa-user"></i>
                                <?php echo Yii::$app->user->identity['name'] . ' - ' . Yii::$app->user->identity['role'];?>
                             </li>
-                            <li><a href="/admin/orders" id="likeOn"><i class="fa fa-shopping-cart"></i> Заказы</a> </li>
-                            <li><a href="/admin"><i class="glyphicon glyphicon-home"></i> Админка</a></li>
-                            <li><a href="/site/logout"><i class="glyphicon glyphicon-log-in"></i> Выход</a></li>
+                            <li><a href="<?= Url::to(['/admin'])?>"><i class="glyphicon glyphicon-home"></i> Админка</a></li>
+                            <li><a href="<?= Url::to(['/logout'])?>"><i class="glyphicon glyphicon-log-in"></i> Выход</a></li>
 <?php else:?>
                             <li>
                                 <a href="#" id="likeOn"><i class="fa fa-star" <?php if ($this->context->like > 0) echo 'style="color: #FE980F"';?> >
@@ -91,11 +90,11 @@ ltIE9AppAsset::register($this);
                                 </a>
                             </li>
                             <li>
-                                <a href="/cart/order" id="cartOn"><i class="fa fa-shopping-cart cart-yes" <?php if ($this->context->cartQty > 0) echo 'style="color: #008000"';?>>
+                                <a href="<?= Url::to(['/cart/order'])?>" id="cartOn"><i class="fa fa-shopping-cart cart-yes" <?php if ($this->context->cartQty > 0) echo 'style="color: #008000"';?>>
                                     </i>Корзина<span class="badge cart_badge"><?php echo $this->context->cartQty; ?></span>
                                 </a>
                             </li>
-                            <li><a href="/admin"><i class="fa fa-lock"></i> Войти</a></li>
+                            <li><a href="<?= Url::to(['/admin'])?>"><i class="fa fa-lock"></i> Войти</a></li>
 <?php endif;?>
                         </ul>
                     </div>
@@ -120,10 +119,9 @@ ltIE9AppAsset::register($this);
                             <li><a href="/" class="active">Главная</a></li>
                             <li class="dropdown"><a href="#">Магазин<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="/category">Все товары</a></li>
-                                    <li><a href="#">Избранное</a></li>
-                                    <li><a href="/cart/order">Корзина</a></li>
-                                    <li><a href="#">Войти</a></li>
+                                    <li><a href="<?= Url::to(['/category'])?>">Все товары</a></li>
+                                    <li><a href="<?= Url::to(['/cart/order'])?>">Корзина</a></li>
+                                    <li><a href="<?= Url::to(['/admin'])?>">Войти</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">О нас</i></a>

@@ -2411,10 +2411,10 @@ img.img_400{
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  /*background:#FE980F;
   border: 0 none;
   border-radius: 0;
-  margin-top: 16px;
+  margin-top: 16px;*/
 }
 
 .blank-arrow {
@@ -2541,6 +2541,14 @@ img.img_400{
 
 .pointer{
   cursor: pointer;
+}
+
+.table-striped th, .table-striped td {
+  text-align: center;
+}
+
+.nopadding{
+  padding-left: 0!important;
 }
 
 

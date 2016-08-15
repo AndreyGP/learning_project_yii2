@@ -65,7 +65,7 @@ class Order extends AppActiveModel
             [['status'], 'boolean'],
             [['name'], 'string', 'max' => 100],
             [['email', 'phone'], 'string', 'max' => 50],
-            [['address'], 'string', 'max' => 255],
+            [['address'], 'string'],
         ];
     }
 
@@ -75,10 +75,10 @@ class Order extends AppActiveModel
     public function attributeLabels()
     {
         return [
-            'name' => 'Введите имя',
+            'name' => 'Введите Ваши Ф.И.О.',
             'email' => 'Введите email',
             'phone' => 'Введите № телефона',
-            'address' => 'Введите адрес доставки',
+            'address' => 'Введите полный адрес для доставки',
         ];
     }
 }

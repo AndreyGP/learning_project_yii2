@@ -346,4 +346,16 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$('#orders-prc').on('input', function () {
+		var black_sum = $('#orders-black_sum').val();
+		var prc = $('#orders-prc').val();
+		var sum = black_sum;
+		if (prc === 0 || prc === ''){
+			$('#orders-sum').val(Math.round(sum));
+		} else {
+			sum = (black_sum / 100) * (100 - prc);
+			$('#orders-sum').val(Math.round(sum));
+		}
+	});
 });

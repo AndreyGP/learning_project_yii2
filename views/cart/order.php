@@ -98,7 +98,7 @@ use yii\widgets\ActiveForm;
                 echo $form->field($order, 'name');
                 echo $form->field($order, 'email');
                 echo $form->field($order, 'phone');
-                echo $form->field($order, 'address');
+                echo $form->field($order, 'address')->textarea();
                 echo Html::submitButton('Оформить заказ', ['class' => 'btn btn-success']);
                 ?>
                 <?php ActiveForm::end();?>

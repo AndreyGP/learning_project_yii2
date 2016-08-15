@@ -75,6 +75,7 @@ $config = [
                 'brand/<title>' => 'brands/view',
                 'novinki' => 'products/novelty',
                 'discount' => 'products/discount',
+                'admin' => 'admin/orders',
                 'login' => 'site/login',
                 'logout' => 'site/logout',
             ]
