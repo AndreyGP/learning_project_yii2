@@ -166,6 +166,7 @@ use yii\widgets\LinkPager;
                             </p>
                             <div>
                                 <p><b><span>Описание:</span>&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span></b></p>
+
                                 <?php echo $product['body'];?>
                             </div>
 <?php if (!$raiting):?>

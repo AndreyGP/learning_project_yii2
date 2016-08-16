@@ -37,7 +37,7 @@ class ProductsController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Products::find()
-                    ->with('categoriesproducts'),
+                    ->with(['categoriesproducts', 'brandsproducts']),
             'pagination' => [
                 'pageSize' => 20,
             ],

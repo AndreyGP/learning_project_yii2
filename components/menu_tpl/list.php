@@ -4,5 +4,5 @@
         <?= $tab . $category['title'];?>
 </option>
 <?php if ($category['children']):?>
-        <?= $this->menuHtml($category['children'], $tab = '&emsp;&emsp;' . $tab . '&#10149;', $id);?>
+        <?= $this->menuHtml($category['children'], $tab = '&emsp;&emsp;' . $tab . '&#10149;', $this->id);?>
 <?php endif;?>

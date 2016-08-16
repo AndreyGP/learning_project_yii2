@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /cgi-bin
+Disallow: /admin
+Host: http://tatyana-fashion.ru/
+Sitemap: http://tatyana-fashion.ru/files/robot/sitemap.xml

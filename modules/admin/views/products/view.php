@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'img_zoom',
             [
                 'attribute' => 'img_zoom',
-                'value' => '<img src="' . $model->img_zoom  . '" width="150px"> <img src="' . $model->img_zoom  . '" width="150px"> <img src="' . $model->img_zoom  . '" width="150px">',
+                'value' => '<img src="' . $model->img_zoom  . '" width="150px">',
                 'format' => 'raw',
             ],
             'title',
@@ -48,12 +48,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => mb_strtoupper($model->brandsproducts->title),
             ],
             'data_title',
-            // 'body:ntext',
-            [
+            'body:raw',
+            /*[
                 'attribute' => 'body',
                 'value' => $model->body,
                 'format' => 'raw',
-            ],
+            ],*/
             'data_description',
             'keyword',
             'price',
