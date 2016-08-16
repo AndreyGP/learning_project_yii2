@@ -3,17 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Brands;
-use app\models\Product;
+use app\modules\admin\models\Products;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * BrandsController implements the CRUD actions for Brands model.
+ * ProductsController implements the CRUD actions for Products model.
  */
-class BrandsController extends Controller
+class ProductsController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,19 +30,20 @@ class BrandsController extends Controller
     }
 
     /**
-     * Lists all Brands models.
+     * Lists all Products models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Brands::find(),
+            'query' => Products::find()
+                    ->with('categoriesproducts'),
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 20,
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'title' => SORTTO
+                    'category_id' => SORTTO
                 ]
             ]
         ]);
@@ -54,7 +54,7 @@ class BrandsController extends Controller
     }
 
     /**
-     * Displays a single Brands model.
+     * Displays a single Products model.
      * @param integer $id
      * @return mixed
      */
@@ -66,26 +66,21 @@ class BrandsController extends Controller
     }
 
     /**
-     * Creates a new Brands model.
+     * Creates a new Products model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Brands();
+        $model = new Products();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->title = mb_strtolower($model->title);
-            if ($model->save()){
-                Yii::$app->cache->delete('brand_menu');
-                Yii::$app->session->setFlash('success', 'Бренд <strong>"' . $model->title . '"</strong> добавлен.');
-                return $this->redirect(['view', 'id' => $model->id]);
-            }else {
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
-
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->cache->delete('brand_menu');
+            Yii::$app->cache->delete('product_plus');
+            Yii::$app->cache->delete('recommended');
+            Yii::$app->cache->delete('sale');
+            Yii::$app->session->setFlash('success', 'Товар <strong>"' . $model->title . '"</strong> добавлен.');
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -94,7 +89,7 @@ class BrandsController extends Controller
     }
 
     /**
-     * Updates an existing Brands model.
+     * Updates an existing Products model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -102,21 +97,15 @@ class BrandsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->title = mb_strtolower($model->title);
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->title = mb_strtolower($model->title);
-            if ($model->save()){
-                Yii::$app->cache->delete('brand_menu');
-                Yii::$app->session->setFlash('success', 'Бренд <strong>"' . $model->title . '"</strong> изменён.');
-                return $this->redirect(['view', 'id' => $model->id]);
-            }else {
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->cache->delete('brand_menu');
+            Yii::$app->cache->delete('product_plus');
+            Yii::$app->cache->delete('recommended');
+            Yii::$app->cache->delete('sale');
+            Yii::$app->session->setFlash('success', 'Товар <strong>"' . $model->title . '"</strong> удачно обновлён.');
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            Yii::$app->session->setFlash('error', '<strong>Ошибка редактирования бренда </strong>');
             return $this->render('update', [
                 'model' => $model,
             ]);
@@ -124,34 +113,33 @@ class BrandsController extends Controller
     }
 
     /**
-     * Deletes an existing Brands model.
+     * Deletes an existing Products model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        if (Product::find()->where(['brand_id' => $id])->count() >= 1){
-            Yii::$app->session->setFlash('error', '<strong>Удаление невозможно!</strong> Бранд имеет вложенные товары');
-            return $this->redirect(Yii::$app->request->referrer);
-        }
         $this->findModel($id)->delete();
         Yii::$app->cache->delete('brand_menu');
-        Yii::$app->session->setFlash('success', 'Бренд удален.');
+        Yii::$app->cache->delete('product_plus');
+        Yii::$app->cache->delete('recommended');
+        Yii::$app->cache->delete('sale');
+        Yii::$app->session->setFlash('success', 'Товар  удалён.');
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Brands model based on its primary key value.
+     * Finds the Products model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Brands the loaded model
+     * @return Products the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Brands::findOne($id)) !== null) {
+        if (($model = Products::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -2545,10 +2545,15 @@ img.img_400{
 
 .table-striped th, .table-striped td {
   text-align: center;
+  font-weight: bold;
 }
 
 .nopadding{
   padding-left: 0!important;
+}
+
+#products-price{
+  width: 25%;
 }
 
 

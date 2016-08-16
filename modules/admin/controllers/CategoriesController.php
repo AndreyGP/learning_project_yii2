@@ -117,11 +117,12 @@ class CategoriesController extends Controller
      */
     public function actionDelete($id)
     {
-        if (Product::find()->where(['category_id' => $id])->count() || Categories::find()->where(['parent_id' => $id])->count()){
+        if (Product::find()->where(['category_id' => $id])->count() >= 1 || Categories::find()->where(['parent_id' => $id])->count() >= 1){
             Yii::$app->session->setFlash('error', '<strong>Удаление невозможно!</strong> Категория имеет вложенные категории или товар');
             return $this->redirect(Yii::$app->request->referrer);
         }
         $this->findModel($id)->delete();
+        Yii::$app->cache->delete('cat_menu');
         Yii::$app->session->setFlash('success', 'Категория удалена.');
 
         return $this->redirect(['index']);

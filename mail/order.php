@@ -1,3 +1,5 @@
+<h1>Благодарим за Ваш заказ!</h1>
+<h3>Уважаемый(ая) <?= $order->name ?></h3>
 <div class="table-responsive">
     <table style="width: 100%; border: 1px solid #DDDDDD; border-collapse: collapse;">
         <thead>
