@@ -115,7 +115,10 @@ ltIE9AppAsset::register($this);
     <?= $content; ?>
 </div>
     <footer id="footer"><!--Footer-->
-
+        <div class="footer-top" style="height: 50px">
+            <div class="container">
+            </div>
+        </div>
     </footer><!--/Footer-->
 
     <?php $this->endBody() ?>

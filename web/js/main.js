@@ -358,4 +358,45 @@ $(document).ready(function(){
 			$('#orders-sum').val(Math.round(sum));
 		}
 	});
+	///////////////////////////////////////////////////////////////////
+	
+	$('#img_delete').on('click', function () {
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/admin/products/imgdelete',
+			data: {id: id},
+			type: "GET",
+			success: function (res) {
+				//console.log(res);
+				$('#img_delete').attr('src', function () {
+					return res;
+				});
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('#images_delete').on('click', function () {
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/admin/products/imagesdelete',
+			data: {id: id},
+			dataType: 'html',
+			type: "GET",
+			success: function (res) {
+				console.log(res);
+				$('.img_box').replaceWith(function () {
+					return "<img src='" + res + "' width='150px'>";
+				});
+				$('#img_delete').replaceWith(function () {
+					return "<img src='" + res + "' width='150px'>";
+				});
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
 });

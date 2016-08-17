@@ -2556,4 +2556,8 @@ img.img_400{
   width: 25%;
 }
 
+#img_delete, #images_delete{
+  cursor: pointer;
+}
+
 

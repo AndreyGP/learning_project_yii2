@@ -45,7 +45,7 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="tel:+7(000)-000-00-00"><i class="fa fa-phone"></i> +7(000)-000-00-00</a></li>
+                            <li><a href="tel:+7(000)-000-00-00"><i class="fa fa-phone"></i> +7(928)-007-18-90</a></li>
                             <li><a href="mailto:info@tatyana-fashion.ru"><i class="fa fa-envelope"></i> info@tatyana-fashion.ru</a></li>
                         </ul>
                     </div>

@@ -35,6 +35,9 @@ use Yii;
  */
 class Products extends \app\modules\admin\models\AppAdminActiveModel
 {
+    public $image;
+    public $gallery;
+
     /**
      * @inheritdoc
      */
@@ -55,8 +58,12 @@ class Products extends \app\modules\admin\models\AppAdminActiveModel
                 // если вместо метки времени UNIX используется datetime:
                 'value' => new Expression('NOW()'),
             ],
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
         ];
     }
+
 
     public function getBrandsproducts()
     {
@@ -74,14 +81,16 @@ class Products extends \app\modules\admin\models\AppAdminActiveModel
     public function rules()
     {
         return [
-            [['vendor_code', 'category_id', 'brand_id', 'h_img_400', 'is_new', 'in_stock', 'hit', 'recomended', 'discount', 'rait_count'], 'integer'],
-            [['category_id', 'brand_id', 'title', 'raiting', 'rait_count'], 'required'],
+            [['vendor_code', 'category_id', 'brand_id',  'is_new', 'in_stock', 'hit', 'recomended', 'discount', 'rait_count'], 'integer'],
+            [['category_id', 'brand_id', 'title'], 'required'],
             [['body'], 'string'],
-            [['price', 'raiting'], 'number'],
+            [['price'], 'number'],
             [['created', 'modified'], 'safe'],
-            [['title', 'keyword', 'img', 'img_400', 'img_zoom'], 'string', 'max' => 255],
+            [['title', 'keyword'], 'string', 'max' => 255],
             [['data_title', 'data_description'], 'string', 'max' => 254],
-            [['vendor_code'], 'unique'],
+            [['vendor_code'], 'safe'],
+            [['image'], 'file', 'extensions' => 'png, jpg, jpeg, pjpeg'],
+            [['gallery'], 'file', 'extensions' => 'png, jpg, jpeg, pjpeg', 'maxFiles' => 6],
         ];
     }
 
@@ -101,10 +110,8 @@ class Products extends \app\modules\admin\models\AppAdminActiveModel
             'data_description' => 'Описание для Поделиться и Поисковиков',
             'keyword' => 'Ключевики для поисковиков',
             'price' => 'Цена',
-            'img' => 'Изображение',
-            'img_400' => 'Изображение карточки статик',
-            'h_img_400' => 'Высота текущего изобращения',
-            'img_zoom' => 'Фото',
+            'image' => 'Главное (одно) фото товара',
+            'gallery' => 'Фото галерея(не более 6 фото) товара',
             'is_new' => 'Новинка',
             'in_stock' => 'Наличие',
             'hit' => 'Популярный',
@@ -115,5 +122,32 @@ class Products extends \app\modules\admin\models\AppAdminActiveModel
             'created' => 'Добавлено',
             'modified' => 'Изменено',
         ];
+    }
+
+    public function upload(){
+        if($this->validate()){
+            $path = 'images/products/' . $this->image->baseName . '.' . $this->image->extension;
+            $this->image->saveAs($path);
+            $this->attachImage($path, true);
+            @unlink($path);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function uploadGallery(){
+        if($this->validate()){
+            foreach ($this->gallery as $file){
+                $path = 'images/products/' . $file->baseName . '.' . $file->extension;
+                $file->saveAs($path);
+                $this->attachImage($path);
+                @unlink($path);
+            }
+
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -24,16 +24,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+    <?php $img = $model->getImage(); //debug($img); ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             // 'id',
             // 'img_zoom',
             [
-                'attribute' => 'img_zoom',
-                'value' => '<img src="' . $model->img_zoom  . '" width="150px">',
-                'format' => 'raw',
+                'attribute' => 'image',
+                'value' => "<img src='{$img->getUrl()}' width='150px'>",
+                'format' => 'html',
             ],
             'title',
             'vendor_code',

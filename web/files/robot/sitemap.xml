@@ -1,9 +1,479 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 		<!--	created with www.mysitemapgenerator.com	-->
 		<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
 	<loc>http://tatyana-fashion.ru/</loc>
-	<lastmod>2016-07-03T22:14:37+01:00</lastmod>
+	<lastmod>2016-08-16T23:39:51+01:00</lastmod>
 	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/cart/order</loc>
+	<lastmod>2016-08-16T23:39:52+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category</loc>
+	<lastmod>2016-08-16T23:39:53+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/zhenskaya-odezhda</loc>
+	<lastmod>2016-08-16T23:39:53+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/svitera</loc>
+	<lastmod>2016-08-16T23:39:54+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/pullovery</loc>
+	<lastmod>2016-08-16T23:39:57+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/novinki-svitera</loc>
+	<lastmod>2016-08-16T23:39:57+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/sredstva-stirki</loc>
+	<lastmod>2016-08-16T23:39:57+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kardigany</loc>
+	<lastmod>2016-08-16T23:40:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/lyogkaya-odezhda</loc>
+	<lastmod>2016-08-16T23:40:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/platya</loc>
+	<lastmod>2016-08-16T23:40:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/sportivnoe</loc>
+	<lastmod>2016-08-16T23:40:03+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/zhilety</loc>
+	<lastmod>2016-08-16T23:40:03+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/tuniki</loc>
+	<lastmod>2016-08-16T23:40:03+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:05+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/izyashchnye-rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:05+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/povsednevnye-rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:06+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/s-logotipami-rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:07+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/sovremennye-rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:08+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bolshie-razmery-rubashki-bluzy</loc>
+	<lastmod>2016-08-16T23:40:08+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/verhnyaya-odezhda</loc>
+	<lastmod>2016-08-16T23:40:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/palto</loc>
+	<lastmod>2016-08-16T23:40:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/vetrovki</loc>
+	<lastmod>2016-08-16T23:40:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/puhoviki</loc>
+	<lastmod>2016-08-16T23:40:12+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/dzhinsov%D0%BE%D0%B5</loc>
+	<lastmod>2016-08-16T23:40:12+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/modn%D0%BEe</loc>
+	<lastmod>2016-08-16T23:40:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/futbolki</loc>
+	<lastmod>2016-08-16T23:40:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/majki</loc>
+	<lastmod>2016-08-16T23:40:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/futbolki-polo</loc>
+	<lastmod>2016-08-16T23:40:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/futbolki-s-logotipom</loc>
+	<lastmod>2016-08-16T23:40:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy</loc>
+	<lastmod>2016-08-16T23:40:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bryuchnye-kostyumy</loc>
+	<lastmod>2016-08-16T23:40:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bryuchnye-kostyumy-ofisnyj-stil</loc>
+	<lastmod>2016-08-16T23:40:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bryuchnye-kostyumy-vecherinka</loc>
+	<lastmod>2016-08-16T23:40:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bryuchnye-kostyumy-povsednevnye</loc>
+	<lastmod>2016-08-16T23:40:20+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bryuchnye-kostyumy-biznes-ledi</loc>
+	<lastmod>2016-08-16T23:40:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bluzka-bryuki</loc>
+	<lastmod>2016-08-16T23:40:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bluzka-bryuki-povsednevnye</loc>
+	<lastmod>2016-08-16T23:40:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bluzka-leginsy</loc>
+	<lastmod>2016-08-16T23:40:24+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bluzka-losiny</loc>
+	<lastmod>2016-08-16T23:40:24+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bryuki-bluzka</loc>
+	<lastmod>2016-08-16T23:40:25+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bluzka-dzhinsy</loc>
+	<lastmod>2016-08-16T23:40:26+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-shorty-yubka</loc>
+	<lastmod>2016-08-16T23:40:26+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-korotkie-shorty-yubka</loc>
+	<lastmod>2016-08-16T23:40:27+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-bridzhi-yubka</loc>
+	<lastmod>2016-08-16T23:40:28+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-yubka-maksi</loc>
+	<lastmod>2016-08-16T23:40:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-yubka-midi</loc>
+	<lastmod>2016-08-16T23:40:30+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-yubka-mini</loc>
+	<lastmod>2016-08-16T23:40:31+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-sportivnye</loc>
+	<lastmod>2016-08-16T23:40:31+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-adidas</loc>
+	<lastmod>2016-08-16T23:40:32+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-obebas</loc>
+	<lastmod>2016-08-16T23:40:33+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/sportivnye-olimpijki-i-zhiletki</loc>
+	<lastmod>2016-08-16T23:40:34+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/sportivnye-triko</loc>
+	<lastmod>2016-08-16T23:40:34+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-dzhinsovye</loc>
+	<lastmod>2016-08-16T23:40:35+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-dzhinsovye-trojki</loc>
+	<lastmod>2016-08-16T23:40:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/dzhinsovye-yubki-pidzhaki</loc>
+	<lastmod>2016-08-16T23:40:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kostyumy-dzhinsovye-dvojki</loc>
+	<lastmod>2016-08-16T23:40:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/dzhinsovye-kurtki</loc>
+	<lastmod>2016-08-16T23:40:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/dzhinsovye-shorty</loc>
+	<lastmod>2016-08-16T23:40:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv</loc>
+	<lastmod>2016-08-16T23:40:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-sapogi</loc>
+	<lastmod>2016-08-16T23:40:41+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-sapogi-na-kobluke</loc>
+	<lastmod>2016-08-16T23:40:41+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-sapogi-vysokie</loc>
+	<lastmod>2016-08-16T23:40:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-sapogi-nizkie</loc>
+	<lastmod>2016-08-16T23:40:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-tufli</loc>
+	<lastmod>2016-08-16T23:40:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-tufli-vysokij-kabluk</loc>
+	<lastmod>2016-08-16T23:40:45+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-tufli-labuteny</loc>
+	<lastmod>2016-08-16T23:40:45+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-tufli-glyanets</loc>
+	<lastmod>2016-08-16T23:40:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-bosonozhki</loc>
+	<lastmod>2016-08-16T23:40:47+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-bosonozhki-sabo</loc>
+	<lastmod>2016-08-16T23:40:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-bosonozhki-makasiny</loc>
+	<lastmod>2016-08-16T23:40:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/obuv-bosonozhki-tapochki</loc>
+	<lastmod>2016-08-16T23:40:50+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/aksessuary</loc>
+	<lastmod>2016-08-16T23:40:51+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kupalniki</loc>
+	<lastmod>2016-08-16T23:40:51+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/vse-kupalniki</loc>
+	<lastmod>2016-08-16T23:40:52+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kupalniki-otkrytye</loc>
+	<lastmod>2016-08-16T23:40:53+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kupalniki-razdelnye</loc>
+	<lastmod>2016-08-16T23:40:54+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/kupalniki-zakrytye</loc>
+	<lastmod>2016-08-16T23:40:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/vse-bodi</loc>
+	<lastmod>2016-08-16T23:40:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/category/bodi</loc>
+	<lastmod>2016-08-16T23:40:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/novinki</loc>
+	<lastmod>2016-08-16T23:40:57+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/discount</loc>
+	<lastmod>2016-08-16T23:40:58+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/adidas</loc>
+	<lastmod>2016-08-16T23:40:58+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/shirobas</loc>
+	<lastmod>2016-08-16T23:41:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/bidobas</loc>
+	<lastmod>2016-08-16T23:41:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/turkobas</loc>
+	<lastmod>2016-08-16T23:41:01+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D0%B5</loc>
+	<lastmod>2016-08-16T23:41:02+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/33</loc>
+	<lastmod>2016-08-16T23:41:03+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/16</loc>
+	<lastmod>2016-08-16T23:41:05+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/15</loc>
+	<lastmod>2016-08-16T23:41:07+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/14</loc>
+	<lastmod>2016-08-16T23:41:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/13</loc>
+	<lastmod>2016-08-16T23:41:12+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/4</loc>
+	<lastmod>2016-08-16T23:41:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/product/2</loc>
+	<lastmod>2016-08-16T23:41:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://tatyana-fashion.ru/brand/login.html</loc>
+	<lastmod>2016-08-16T23:41:21+01:00</lastmod>
+	<priority>0.8</priority>
 </url>
 </urlset>
