@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Modal;
 use app\assets\AppAsset;
 use app\assets\ltIE9AppAsset;
+use yii\widgets\ActiveForm;
 use yii\helpers\Url;
 
 AppAsset::register($this);
@@ -53,11 +54,11 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-odnoklassniki"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="http://ok.ru/profile/561748319097" target="_blank"><i class="fa fa-odnoklassniki"></i></a></li>
+                            <li><a href="http://vk.com/id15615403" target="_blank"><i class="fa fa-vk"></i></a></li>
+                            <li><a href="https://m.facebook.com/profile.php?id=100007105268835" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <!--li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li-->
                         </ul>
                     </div>
                 </div>
@@ -124,14 +125,8 @@ ltIE9AppAsset::register($this);
                                     <li><a href="<?= Url::to(['/admin'])?>">Войти</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">О нас</i></a>
-                                <!--ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Blog List</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul-->
-                            </li>
-                            <li><a href="#">Отзывы</a></li>
-                            <li><a href="#">Контакты</a></li>
+                            <li><a href="<?= Url::to(['/otzivy'])?>">Отзывы</a></li>
+                            <li><a href="<?= Url::to(['/contacts'])?>">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
@@ -217,9 +212,9 @@ ltIE9AppAsset::register($this);
                     <div class="single-widget">
                         <h2>Обслуживание</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Онлайн помощь</a></li>
-                            <li><a href="#">Свяжитесь с нами</a></li>
-                            <li><a href="#">Статус заказа</a></li>
+                            <!--li><a href="#" id="callMe">Онлайн помощь</a></li>
+                            <li><a href="#">Свяжитесь с нами</a></li-->
+                            <li><a href="<?= Url::to(['/orders/view'])?>">Статус заказа</a></li>
                             <li><a href="#">FAQ’s</a></li>
                         </ul>
                     </div>
@@ -263,11 +258,23 @@ ltIE9AppAsset::register($this);
                 <div class="col-sm-3 col-sm-offset-1">
                     <div class="single-widget">
                         <h2>О Tatyana Fashion</h2>
-                        <form action="#" class="searchform">
-                            <input type="text" placeholder="Ваш email адрес" />
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                        <?php $form = ActiveForm::begin([
+                            'action' => '/leads/create',
+                            'options' => [
+                                'class' => 'searchform',
+                            ]
+                        ]); ?>
+                        <?php echo Html::input('email', 'email', null, [
+                            'placeholder' => 'Ваш email адрес',
+                            'id' => 'inputLead',
+                            'required' => 'required'
+                        ]);?>
+                        <?php echo Html::submitButton('<i class="fa fa-arrow-circle-o-right"></i>', [
+                            'class' => 'btn btn-default',
+                            'id' => 'leadsButton'
+                        ]);?>
                             <p>Получайте самые последние обновления с нашего сайта и обновляйте себя в новом стиле...</p>
-                        </form>
+                        <?php ActiveForm::end(); ?>
                     </div>
                 </div>
 

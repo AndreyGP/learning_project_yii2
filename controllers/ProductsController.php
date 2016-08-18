@@ -7,11 +7,14 @@
  */
 
 namespace app\controllers;
+use app\models\Category;
+use app\modules\admin\models\Products;
 use app\models\Product;
 use yii\data\Pagination;
 //use app\models\Category;
 use app\models\RaitIp;
 use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 use Yii;
 
 
@@ -25,11 +28,13 @@ class ProductsController extends AppController
             throw new HttpException('404', 'Страница не существует');
         }
 
-        $product = Product::find()
+        $product = $this->findModel($id);
+        $category = Category::find()
             ->asArray()
-            ->with('categories')
-            ->where(['id' => $id])
+            ->select(['title', 'alias'])
+            ->where(['id' => $product['category_id']])
             ->one();
+
         if (empty($product)){
             throw new HttpException('404', 'Страница не существует');
         }
@@ -56,7 +61,7 @@ class ProductsController extends AppController
             $raiting = true;
         }
 
-        return $this->render('view', compact('product', 'raiting', 'ip'));
+        return $this->render('view', compact('product', 'raiting', 'ip', 'category'));
 
 
     }
@@ -79,8 +84,7 @@ class ProductsController extends AppController
 
     public function actionNovelty()
     {
-        $query = Product::find()
-            ->asArray()
+        $query = Products::find()
             ->where(['is_new' => 1])
             ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
             ->orderBy('id DESC');
@@ -109,8 +113,7 @@ class ProductsController extends AppController
 
     public function actionDiscount()
     {
-        $query = Product::find()
-            ->asArray()
+        $query = Products::find()
             ->where(['discount' => 1])
             ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
             ->orderBy('id DESC');
@@ -135,5 +138,14 @@ class ProductsController extends AppController
             'Модная, стильная, одежда, женская, доставка по России, скидки');
 
         return $this->render('novelty', compact('products', 'cat_id', 'pages'));
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Products::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

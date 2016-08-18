@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <?php $count = count($hits); $i = 0; foreach ($hits as $hit):?>
+            <?php $counth = count($hits); $i = 0; foreach ($hits as $hit):?>
             <?php if ($i == 0):?>
             <div class="item active">
                 <?php endif; ?>
@@ -19,7 +19,10 @@ use yii\helpers\Html;
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <?php echo Html::img($hit['img_zoom'], ['alt' => 'recommend']);?>
+                                    <?php $img = $hit->getImage(); ?>
+                                    <a class="prod_cart" href="/product/<?php echo $hit['id'];?>">
+                                    <?php echo Html::img($img->getUrl('270x'), ['alt' => 'recommend']);?>
+                                    </a>
                                     <h2><?php echo $hit['price'];?></h2>
                                     <p><a class="prod_cart" href="/product/<?php echo $hit['id'];?>"><?php echo $hit['title'];?></a></p>
                                     <a href="<?php Url::to(['/cart/add', 'id' => $hit['id']]);?>" data-id="<?php echo $hit['id'];?>" type="button" class="btn btn-default add-to-cart">
@@ -43,17 +46,19 @@ use yii\helpers\Html;
                         </div>
                     </div>
                     <?php $i++ ;?>
-                    <?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
+                    <?php if ($i % 3 == 0 && $i != 0 || $i == $counth):?>
                 </div>
             <?php endif; ?>
                 <?php  endforeach;?>
             </div>
+<?php if ($counth > 3): ?>
             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
             </a>
             <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
                 <i class="fa fa-angle-right"></i>
             </a>
+<?php endif; ?>
         </div>
     </div><!--/recommended_items-->
 <?php endif; ?>
@@ -63,7 +68,7 @@ use yii\helpers\Html;
 
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <?php $count = count($recommended); $i = 0; foreach ($recommended as $item):?>
+            <?php $countr = count($recommended); $i = 0; foreach ($recommended as $item):?>
             <?php if ($i == 0):?>
             <div class="item active">
                 <?php endif; ?>
@@ -74,7 +79,10 @@ use yii\helpers\Html;
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <?php echo Html::img($item['img_zoom'], ['alt' => 'recommend']);?>
+                                    <?php $imgi = $item->getImage(); ?>
+                                    <a class="prod_cart" href="/product/<?php echo $item['id'];?>">
+                                    <?php echo Html::img($imgi->getUrl('270x'), ['alt' => 'recommend']);?>
+                                    </a>
                                     <h2><?php echo $item['price'];?></h2>
                                     <p><a class="prod_cart" href="/product/<?php echo $item['id'];?>"><?php echo $item['title'];?></a></p>
                                     <a href="<?php Url::to(['/cart/add', 'id' => $item['id']]);?>" data-id="<?php echo $item['id'];?>" type="button" class="btn btn-default add-to-cart">
@@ -98,17 +106,19 @@ use yii\helpers\Html;
                         </div>
                     </div>
                     <?php $i++ ;?>
-                    <?php if ($i % 3 == 0 && $i != 0 || $i == $count):?>
+                    <?php if ($i % 3 == 0 && $i != 0 || $i == $countr):?>
                 </div>
             <?php endif; ?>
                 <?php  endforeach;?>
             </div>
+    <?php if ($countr > 3): ?>
             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
             </a>
             <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
                 <i class="fa fa-angle-right"></i>
             </a>
+    <?php endif;?>
         </div>
     </div><!--/recommended_items-->
 <?php endif; ?>

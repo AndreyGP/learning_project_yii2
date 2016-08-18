@@ -24,8 +24,9 @@ use yii\helpers\Html;
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
+                                        <?php $img = $item->getImage();?>
                                         <a href="<?php echo Url::to('/product/' . $item['id']); ?>" class="prod_cart">
-                                            <img src="<?php echo $item['img_zoom'] ;?>" alt="<?php echo $item['title'] ;?>" />
+                                            <img src="<?php echo $img->getUrl('210x') ;?>" alt="<?php echo $item['title'] ;?>" />
                                         </a>
                                         <h2><?php echo $item['price'] ;?></h2>
                                         <a href="<?php echo Url::to('/product/' . $item['id']); ?>" class="prod_cart">

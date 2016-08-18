@@ -64,40 +64,40 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'is_new',
                 'value' => !$model->is_new
-                    ? '<span class="text-danger">Нет</span>'
-                    : '<span class="text-success">Да</span>',
+                    ? '<span style="color: red">Нет</span>'
+                    : '<span style="color: green">Да</span>',
                 'format' => 'raw',
             ],
             // 'in_stock',
             [
                 'attribute' => 'in_stock',
                 'value' => !$model->in_stock
-                    ? '<span class="text-danger">Нет</span>'
-                    : '<span class="text-success">Да</span>',
+                    ? '<span style="color: red">Нет</span>'
+                    : '<span style="color: green">Да</span>',
                 'format' => 'raw',
             ],
             // hit',
             [
                 'attribute' => 'hit',
                 'value' => !$model->hit
-                    ? '<span class="text-danger">Нет</span>'
-                    : '<span class="text-success">Да</span>',
+                    ? '<span style="color: red">Нет</span>'
+                    : '<span style="color: green">Да</span>',
                 'format' => 'raw',
             ],
             // 'recomended',
             [
                 'attribute' => 'recomended',
                 'value' => !$model->recomended
-                    ? '<span class="text-danger">Нет</span>'
-                    : '<span class="text-success">Да</span>',
+                    ? '<span style="color: red">Нет</span>'
+                    : '<span style="color: green">Да</span>',
                 'format' => 'raw',
             ],
             // 'discount',
             [
                 'attribute' => 'discount',
                 'value' => !$model->discount
-                        ? '<span class="text-danger">Нет</span>'
-                        : '<span class="text-success">Да</span>',
+                        ? '<span style="color: red">Нет</span>'
+                        : '<span style="color: green">Да</span>',
                 'format' => 'raw',
             ],
             'raiting',

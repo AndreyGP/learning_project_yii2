@@ -69,6 +69,7 @@ Use app\components\BrandMenuWidget;
     <hr/>
     <h4>Загрузка изображений:</h4>
     <?= $form->field($model, 'image')->fileInput() ?>
+
     <?php $img = $model->getImage(); ?>
     <img src="<?php echo $img ? $img->getUrl() : '/images/products/no-images.png'?>" width="150px" id="img_delete" data-id="<?= $model->id; ?>">
     <?php unset($img); ?>

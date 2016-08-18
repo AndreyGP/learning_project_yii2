@@ -24,10 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id',
             // 'img_zoom',
             [
-                'attribute' => 'img_zoom',
+                'attribute' => 'image',
                 'value' => function($data)
                 {
-                    return '<img src="' . $data->img_zoom  . '" width="150px">';
+                    $img = $data->getImage();
+                    return '<img src="' . $img->getUrl()  . '" width="150px">';
                 },
                 'format' => 'raw',
             ],

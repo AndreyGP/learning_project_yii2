@@ -17,8 +17,9 @@ use yii\helpers\Html;
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
+                                <?php $img = $rcmd->getImage(); ?>
                                 <a href="<?php echo Url::to('/product/' . $rcmd['id']); ?>" class="prod_cart">
-                                    <?php echo Html::img($rcmd['img_zoom'], ['alt' => 'recommend']);?>
+                                    <?php echo Html::img($img->getUrl('270x'), ['alt' => 'recommend']);?>
                                 </a>
                                 <h2><?php echo $rcmd['price'];?></h2>
                                 <a href="<?php echo Url::to('/product/' . $rcmd['id']); ?>" class="prod_cart">
@@ -51,11 +52,13 @@ use yii\helpers\Html;
             <?php  endforeach;?>
 
         </div>
+    <?php if ($count > 3):?>
         <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
             <i class="fa fa-angle-left"></i>
         </a>
         <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
             <i class="fa fa-angle-right"></i>
         </a>
+    <?php endif; ?>
     </div>
 <?php endif; ?>

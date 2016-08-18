@@ -13,7 +13,7 @@
             <?php foreach($session['like'] as $id => $item):?>
                 <tr>
                     <td class="cart_product">
-                        <a href="/product/<?php echo $id;?>"><img height="50" src="<?php echo $item['IMG'];?>" alt="<?php echo $item['NAME'];?>"></a>
+                        <a href="/product/<?php echo $id;?>"><img src="<?php echo $item['IMG'];?>" alt="<?php echo $item['NAME'];?>"></a>
                     </td>
                     <td class="cart_description">
                         <h4><a href="/product/<?php echo $id;?>"><?php echo $item['NAME'];?></a></h4>

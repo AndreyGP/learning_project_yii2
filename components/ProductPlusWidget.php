@@ -8,7 +8,8 @@
 
 namespace app\components;
 use yii\base\Widget;
-use app\models\Product;
+use app\modules\admin\models\Products;
+use yii\web\NotFoundHttpException;
 use Yii;
 
 class ProductPlusWidget extends Widget
@@ -29,15 +30,13 @@ class ProductPlusWidget extends Widget
     {
         $product_plus = Yii::$app->cache->get('product_plus');
         if (empty($product_plus)){
-            $this->hits = Product::find()
-                ->asArray()
+            $this->hits = Products::find()
                 ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
                 ->where(['hit' => 1])
                 ->orderBy('id DESC')
                 ->limit(12)
                 ->all();
-            $this->recommended = Product::find()
-                ->asArray()
+            $this->recommended = Products::find()
                 ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
                 ->where(['recomended' => 1])
                 ->orderBy('id DESC')

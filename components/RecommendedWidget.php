@@ -9,6 +9,7 @@
 namespace app\components;
 use yii\base\Widget;
 use app\models\Product;
+use app\modules\admin\models\Products;
 use Yii;
 
 class RecommendedWidget extends Widget
@@ -27,8 +28,7 @@ class RecommendedWidget extends Widget
     {
         $recommended = Yii::$app->cache->get('recommended');
         if (empty($recommended)){
-            $recomend = Product::find()
-                ->asArray()
+            $recomend = Products::find()
                 ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
                 ->where(['recomended' => 1])
                 ->orderBy('id DESC')

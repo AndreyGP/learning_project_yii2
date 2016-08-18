@@ -4,7 +4,6 @@ namespace app\modules\admin\models;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
-use Yii;
 
 /**
  * This is the model class for table "products".

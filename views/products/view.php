@@ -56,54 +56,45 @@ use yii\widgets\LinkPager;
 
                 </div>
             </div>
-
+<?php
+$mainImg = $product->getImage();
+$gallery = $product->getImages();
+//debug($gallery);
+?>
+<?php  ?>
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product" >
                             <img class = "cloudzoom img_400"
-                                 src = "http://tatyana-fashion.ru/img/products/4bcdb9752d0fe56766ed2898356966b5.jpg"
+                                 src = "<?php echo $mainImg->getUrl('325x'); ?>"
                                  data-cloudzoom = "
-                                     zoomImage: 'http://tatyana-fashion.ru/img/products/4bcdb9752d0fe56766ed2898356966b5.jpg',
+                                     zoomImage: '<?php echo $mainImg->getUrl(); ?>',
                                      zoomWidth: 400, zoomHeight: 400
-                                " title="<?php echo $product['title'];?>"
+                                " title="<?php echo $product->title;?>"
                             />
 
                         </div>
-<?php if (true):?>
+<?php if ($gallery):?>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
-
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
-                                <div class="item active">
+<?php $i = 0; $count = count($gallery); foreach ($gallery as $item):?>
+    <?php if (($i % 3) == 0): ?>
+                                <div class="item <?php if ($i == 0) echo 'active'; ?>">
+    <?php endif;?>
                                     <img class = 'cloudzoom-gallery pointer'
-                                         src = "/web/images/product-details/similar1.jpg"
+                                         src = "<?php echo $item->getUrl('85x'); ?>"
                                          data-cloudzoom = "
                                              useZoom: '.cloudzoom',
-                                             image: '/web/images/products/product1.jpg',
-                                             zoomImage: '/web/images/products/product1.jpg' "
-                                    />
-                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar2.jpg"
-                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product2.jpg', zoomImage: '/web/images/products/product2.jpg' " >
-                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar3.jpg"
-                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product3.jpg', zoomImage: '/web/images/products/product3.jpg' " >
+                                             image: '<?php echo $item->getUrl('325x'); ?>',
+                                             zoomImage: '<?php echo $item->getUrl(); ?>' "/>
+    <?php $i++ ;if (($i % 3) == 0 || $i == $count): ?>
                                 </div>
-                                <div class="item">
-                                    <img class = 'cloudzoom-gallery pointer'
-                                         src = "/web/images/product-details/similar1.jpg"
-                                         data-cloudzoom = "
-                                             useZoom: '.cloudzoom',
-                                             image: '/web/images/products/product1.jpg',
-                                             zoomImage: '/web/images/products/product1.jpg' "
-                                    />
-                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar2.jpg"
-                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product2.jpg', zoomImage: '/web/images/products/product2.jpg' " >
-                                    <img class = 'cloudzoom-gallery pointer' src = "/web/images/product-details/similar3.jpg"
-                                         data-cloudzoom = "useZoom: '.cloudzoom', image: '/web/images/products/product3.jpg', zoomImage: '/web/images/products/product3.jpg' " >
-                                </div>
-
+    <?php endif;?>
+<?php endforeach; ?>
                             </div>
-    <?php if (true): ?>
+    <?php if ($count > 3): ?>
                             <!-- Controls -->
                             <a class="left item-control" href="#similar-product" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
@@ -141,7 +132,7 @@ use yii\widgets\LinkPager;
                                 <span>&#8381; <?php echo $product['price'];?></span>
                                 <label>Кол-во:</label>
                                 <input id="qty_prod" type="text" value="1" />
-                                <a data-id="<?php echo $product['id'];?>" href="<?php echo Url::to(['cart/add', 'id' => $product['id']]);?>" class="btn btn-fefault cart qty_prod">
+                                <a data-id="<?php echo $product['id'];?>" href="<?php echo Url::to(['cart/add', 'id' => $product['id']]);?>" class="btn btn-fefault add-to-cart cart qty_prod">
                                     <i class="fa fa-shopping-cart"></i>
                                     В корзину
                                 </a>
@@ -159,9 +150,9 @@ use yii\widgets\LinkPager;
                             </p>
                             <?php endif;?>
                             <p><b>Категория:</b>
-                                <a href="/category/<?php echo $product['categories']['alias'];?>">
+                                <a href="/category/<?php echo $category['alias'];?>">
                                     &nbsp;<span class="glyphicon glyphicon-hand-right"></span>
-                                    <span><?php echo $product['categories']['title'];?></span>
+                                    <span><?php echo $category['title'];?></span>
                                 </a>
                             </p>
                             <div>

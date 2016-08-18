@@ -49,6 +49,9 @@ class Order extends AppActiveModel
                 // если вместо метки времени UNIX используется datetime:
                 'value' => new Expression('NOW()'),
             ],
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ],
         ];
     }
 

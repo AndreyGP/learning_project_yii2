@@ -77,7 +77,7 @@ class ProductsController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $model->vendor_code = $this->vendorCodeCreate($model->category_id); //debug($model->vendor_code); //die;
+            $model->vendor_code = $this->vendorCodeCreate($model->category_id);
 
             if ($model->save()){
 

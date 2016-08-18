@@ -399,4 +399,25 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$('#leadsButton').on('click', function (e) {
+		e.preventDefault();
+		var email = $('#inputLead').val();
+		$.ajax({
+			url: '/leads/create',
+			data: {email: email},
+			type: "GET",
+			success: function (res) {
+				alert(res);
+			},
+			error: function () {
+				alert('Error!!!');
+			}
+		});
+	});
+
+	$('#callMe').on('click', function(e) {
+		e.preventDefault();
+		$('#jivo-label-inner-text').click().trigger("click");
+	});
 });

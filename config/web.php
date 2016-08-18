@@ -87,6 +87,7 @@ $config = [
                 'admin' => 'admin/orders',
                 'login' => 'site/login',
                 'logout' => 'site/logout',
+                'otzivy' => 'guests/index',
             ]
         ],
     ],

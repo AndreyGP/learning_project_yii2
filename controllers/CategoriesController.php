@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\Product;
+use app\modules\admin\models\Products;
 use yii\data\Pagination;
 use yii\web\HttpException;
 use Yii;
@@ -22,8 +23,7 @@ class CategoriesController extends AppController
             'Tatyana Fashion! Интернет магазин стильных женских вещей',
             'Женские вещи, интернет магазин, стильные вещи, скидки, новинки, доставка по России');
 
-        $query = Product::find()
-            ->asArray()
+        $query = Products::find()
             ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
             ->where(['hit' => 1])
             ->orderBy('id DESC');
@@ -48,8 +48,7 @@ class CategoriesController extends AppController
     public function actionView($alias = null)
     {
         if ($alias == null){
-            $query = Product::find()
-                ->asArray()
+            $query = Products::find()
                 ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
                 ->orderBy('id DESC');
             $pages = new Pagination([
@@ -83,8 +82,7 @@ class CategoriesController extends AppController
 
         $this->setCatMeta('T-Fashion | ' . $cat_id['title'], $cat_id['description'], $cat_id['keyword']);
 
-        $query = Product::find()
-        ->asArray()
+        $query = Products::find()
         ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
         ->where(['category_id' => $cat_id['id']])
         ->orderBy('id DESC');
@@ -111,8 +109,7 @@ class CategoriesController extends AppController
         $this->setCatMeta('T-Fashion | Результаты поиска' );
         $q = trim(Yii::$app->request->get('q'));
         if (!$q) return $this->render('search');
-        $query = Product::find()
-            ->asArray()
+        $query = Products::find()
             ->select(['id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
             ->where(['LIKE', 'title', $q ])
             ->orderBy('id DESC');

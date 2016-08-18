@@ -10,8 +10,18 @@ namespace app\models;
 
 class Cart extends AppActiveModel
 {
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
     public function addToCart($product, $qty = 1)
     {
+        $mainImg = $product->getImage();
         if (isset($_SESSION['cart'][$product['id']])){
             $_SESSION['cart'][$product['id']]['QTY'] += $qty;
         } else {
@@ -19,7 +29,7 @@ class Cart extends AppActiveModel
                 'QTY' => $qty,
                 'NAME' => $product['title'],
                 'PRICE' => $product['price'],
-                'IMG' => $product['img_zoom'],
+                'IMG' => $mainImg->getUrl('x70'),
                 'CODE' => $product['vendor_code'],
                 'ID' => $product['id']
             ];

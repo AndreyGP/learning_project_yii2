@@ -27,7 +27,7 @@ use yii\widgets\LinkPager;
                             <div class="col-sm-6">
                                 <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
-                                <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
+                                <p>Будьте всегда и раньше всех в стиле!<br/> Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из, если не самой стильной </p>
                                 <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
@@ -39,7 +39,7 @@ use yii\widgets\LinkPager;
                             <div class="col-sm-6">
                                 <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
-                                <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
+                                <p>Экономьте всегда и вместе с нами!<br/> Наши постоянная и акционная системы скидок Вас приятно удивят. Получите акционную скидку к основной уже после заказа</p>
                                 <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
@@ -52,7 +52,7 @@ use yii\widgets\LinkPager;
                             <div class="col-sm-6">
                                 <h1><span>T</span>atyana <span>F</span>ashion</h1>
                                 <h2>Модная одежда для Вас</h2>
-                                <p>Приобретая у нас одежду, Вы можете быть уверены, что в Вы окажитесь одной из самых стильных </p>
+                                <p>Будьте с нами на шаг впереди и в моде!<br/> Наш ассортимент постоянно обновляется за счёт моделей, которые пока не появились в России и СНГ.  </p>
                                 <a href="/category" class="btn btn-default get">Начни сейчас</a>
                             </div>
                             <div class="col-sm-6">
@@ -133,8 +133,9 @@ use yii\widgets\LinkPager;
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
+                                    <?php $img = $model->getImage();?>
                                     <a href="<?php echo Url::to('/product/' . $model['id']); ?>" class="prod_cart">
-                                    <?php echo Html::img($model['img_zoom'], ['alt' => $model['title']]);?>
+                                    <?php echo Html::img($img->getUrl('270x'), ['alt' => $model['title']]);?>
                                     </a>
                                     <h2><?php echo $model['price'];?></h2>
                                     <p>

@@ -9,6 +9,7 @@
 namespace app\components;
 use yii\base\Widget;
 use app\models\Product;
+use app\modules\admin\models\Products;
 use app\models\Brand;
 use Yii;
 
@@ -34,8 +35,7 @@ class SaleWidget extends Widget
                 ->indexBy('id')
                 ->all();
 
-            $discount = Product::find()
-                ->asArray()
+            $discount = Products::find()
                 ->where(['discount' => 1])
                 ->select(['id', 'brand_id', 'title', 'price', 'img_zoom', 'is_new', 'discount'])
                 ->orderBy('brand_id')

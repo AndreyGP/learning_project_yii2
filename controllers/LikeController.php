@@ -10,6 +10,7 @@ namespace app\controllers;
 use app\models\Like;
 use app\models\Product;
 use app\models\Cart;
+use app\modules\admin\models\Products;
 use Yii;
 
 class LikeController extends AppController
@@ -27,9 +28,8 @@ class LikeController extends AppController
 
     public function actionAdd($id, $qty = 1)
     {
-        $product = Product::find()
+        $product = Products::find()
             ->select(['id', 'title', 'vendor_code', 'price', 'img_zoom'])
-            ->asArray()
             ->where(['id' => $id])
             ->one();
         if (empty($product)) return false;

@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use app\models\Product;
+use app\modules\admin\models\Products;
 use app\models\Cart;
 use Yii;
 use app\models\Order;
@@ -28,9 +29,8 @@ class CartController extends AppController
 
     public function actionAdd($id, $qty = 1)
     {
-        $product = Product::find()
+        $product = Products::find()
             ->select(['id', 'title', 'vendor_code', 'price', 'img_zoom'])
-            ->asArray()
             ->where(['id' => $id])
             ->one();
         if (empty($product)) return false;

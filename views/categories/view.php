@@ -1,6 +1,7 @@
 <?php
 use app\components\MenuCategoryWidget;
 use app\components\BrandMenuWidget;
+use app\components\ProductPlusWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
@@ -70,16 +71,17 @@ use yii\widgets\LinkPager;
             </div>
 
             <div class="col-sm-9 padding-right">
-                <?php if (!empty($products)): ?>
+        <?php if (!empty($products)): ?>
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center"><?php echo $cat_id['title']; ?></h2>
-                        <?php $i = 0; foreach ($products as $model): ?>
+                <?php $i = 0; foreach ($products as $model): ?>
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
+                                            <?php $img = $model->getImage() ;?>
                                             <a href="<?php echo Url::to('/product/' . $model['id']); ?>" class="prod_cart">
-                                                <?php echo Html::img($model['img_zoom'], ['alt' => $model['title']]);?>
+                                                <?php echo Html::img($img->getUrl('270x'), ['alt' => $model['title']]);?>
                                             </a>
                                             <h2><?php echo $model['price'];?></h2>
                                             <p>
@@ -130,6 +132,7 @@ use yii\widgets\LinkPager;
                         'pagination' => $pages,
                     ]);
                     ?>
+            <?php echo ProductPlusWidget::widget();?>
                 <?php else:?>
                     <center><table cellspacing="5" cellpadding="3" width="400">
                         <tbody>
