@@ -39,7 +39,9 @@ class LeadsController extends Controller
             ->asArray()
             ->where(['email' => $email])
             ->one();
-        if (!empty($lead)) return 'Вы уже подписаны на рассылку';
+        if (!empty($lead)){
+            return 'Вы уже подписаны на рассылку';
+        }
         //return 'oK';
         $model = new Leads();
         $model->email = $email;

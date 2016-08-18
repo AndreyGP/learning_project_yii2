@@ -16,7 +16,7 @@ $(document).ready(function(){
 		rating: 4.0	, //По умолчанию рейтинг
 		shape: 'STAR',//STAR, FOOD, TWITTER, BULB, RECTANGLE, CIRCLE, RHOMBUS, TRIANGLE.
 		shapeGap: '10px',//Правый отступ
-		minSelected: 3,//Минимально допустимая оценка
+		minSelected: 2,//Минимально допустимая оценка
 		precision: 0.5,//Шаг в оценке
 		width: 30,//Ширина
 		height: 30,//высота

@@ -42,7 +42,8 @@ class OrdersController extends Controller
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'status' => SORTTO
+                    'status' => SORTTO,
+                    'id' => SORT_DESC
                 ]
             ]
         ]);

@@ -92,6 +92,7 @@ ltIE9AppAsset::register($this);
                                         <li><a href="<?= Url::to(['products/create'])?>">Добавить товар</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="<?= Url::to(['/admin/leads'])?>">Подписчики</a></li>
                             </ul>
                         </div>
                     </div>

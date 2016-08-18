@@ -30,8 +30,8 @@ class Leads extends \yii\db\ActiveRecord
             [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created', 'modified'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['modified'],
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created'],
+                    //ActiveRecord::EVENT_BEFORE_UPDATE => ['modified'],
                 ],
                 // если вместо метки времени UNIX используется datetime:
                 'value' => new Expression('NOW()'),

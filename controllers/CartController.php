@@ -30,7 +30,7 @@ class CartController extends AppController
     public function actionAdd($id, $qty = 1)
     {
         $product = Products::find()
-            ->select(['id', 'title', 'vendor_code', 'price', 'img_zoom'])
+            ->select(['id', 'title', 'vendor_code', 'price'])
             ->where(['id' => $id])
             ->one();
         if (empty($product)) return false;
@@ -50,10 +50,17 @@ class CartController extends AppController
     {
         $session = Yii::$app->session;
         $session->open();
-        $_SESSION['cart'] = $_SESSION['like'];
-        $_SESSION['cart.qty'] = $_SESSION['like.qty'];
-        $_SESSION['cart.sum'] = $_SESSION['like.sum'];
-        $_SESSION['cart.prc'] = $_SESSION['like.prc'];
+
+        foreach ($_SESSION['like'] as $item){
+            $product = Products::find()
+                ->select(['id', 'title', 'vendor_code', 'price'])
+                ->where(['id' => $item['ID']])
+                ->one();
+            if (empty($product)) continue;
+            $cart = new Cart();
+            $cart->addToCart($product, $item['QTY']);
+        }
+
         $session->remove('like');
         $session->remove('like.qty');
         $session->remove('like.sum');
@@ -117,15 +124,26 @@ class CartController extends AppController
             $order->sum = ($order->black_sum / 100) * (100 - $order->prc);
             if ($order->save()){
                 $this->saveOrderItems($session['cart'], $order->id);
-                Yii::$app->mailer->compose('order', compact('session', 'order'))
+                $name = $order->name;
+                $oid = $order->name;
+                ob_start();
+                include __DIR__ . '/mail/order.php';
+                $body = ob_get_clean();
+                $this->saveOrderItems($session['cart'], $order->id);
+                Yii::$app->mailer->compose()
                     ->setFrom(['info@tatyana-fashion.ru' => 'Tatyana Fashion - клиентская служба'])
                     ->setTo($order->email)
                     ->setSubject('Ваш заказ в интернет-магазине Tatyana Fashion')
+                    ->setHtmlBody($body)
                     ->send();
-                Yii::$app->mailer->compose('order', compact('session'))
+                ob_start();
+                include __DIR__ . '/mail/admin.php';
+                $adbody = ob_get_clean();
+                Yii::$app->mailer->compose()
                     ->setFrom(['no-reply@tatyana-fashion.ru' => 'Tatyana Fashion'])
-                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setTo('tanyakhonya@gmail.com')
                     ->setSubject('Новый заказ в интернет-магазине Tatyana Fashion')
+                    ->setHtmlBody($adbody)
                     ->send();
                 Yii::$app->session->setFlash('success', '<strong>Благодарим Вас Ваш заказ!</strong> Ближайшее время с Вами свяжется наш менеджер.');
                 $session->remove('cart');

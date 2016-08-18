@@ -42,6 +42,7 @@ class CategoriesController extends AppController
         $this->cartQty = (isset($_SESSION['cart.qty'])) ? $_SESSION['cart.qty'] : false;
         $this->like = (isset($_SESSION['like.qty'])) ? $_SESSION['like.qty'] : false;
 
+
         return $this->render('index', compact('hits', 'pages'));
     }
 
